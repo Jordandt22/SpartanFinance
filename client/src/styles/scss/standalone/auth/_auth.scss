@@ -1,0 +1,269 @@
+// Auth Component Styles
+
+.auth-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient($primary, $mid-primary, $light-primary);
+
+  &__header {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: #3b3bff;
+    padding: $spacer-small * 0.5;
+    border-radius: 25px;
+
+    img {
+      $s: 2rem;
+      width: $s;
+      height: $s;
+      margin-right: $spacer-small * 0.5;
+    }
+
+    h1 {
+      color: white;
+      font-weight: bold;
+      font-size: $main-fs * 0.7;
+      margin-right: $spacer-small;
+    }
+  }
+}
+
+.auth-container__content {
+  background: white;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 10px;
+  align-items: flex-start;
+
+  .side-content {
+    width: 65%;
+    height: 100%;
+    background: $light-bg;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+.auth-form {
+  width: 35%;
+  padding: $spacer;
+  overflow-y: hidden;
+
+  &__title {
+    font-size: $main-fs * 1;
+    margin-bottom: $spacer;
+  }
+}
+
+.auth-form__input-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacer-small * 1.25;
+
+  label {
+    margin-bottom: $spacer-small * 0.65;
+  }
+
+  input {
+    outline: none;
+    border: 1px solid #dddddd;
+    padding: $spacer-small * 0.55 $spacer-small * 0.75;
+    border-radius: 7.5px;
+    transition: all 200ms ease-out;
+
+    &:focus {
+      border: 2px solid $primary;
+    }
+  }
+}
+
+.valid-input {
+  input {
+    border-color: $green;
+  }
+}
+
+.error-input {
+  input {
+    border-color: $red;
+  }
+}
+
+.auth-form__error {
+  background: rgba($red, 0.25);
+  color: $red;
+  font-weight: bold;
+  padding: $spacer-small * 0.5;
+  margin-top: $spacer-small * 0.5;
+  border-radius: 5px;
+  font-size: $main-fs * 0.5;
+  line-height: $spacer-small;
+}
+
+.auth-form__submit {
+  outline: none;
+  border: none;
+  width: 100%;
+  color: white;
+  background: $primary;
+  border-radius: 25px;
+  font-weight: bold;
+  padding: $spacer-small * 0.65 $spacer;
+  margin-top: $spacer-small;
+  transition: all 250ms ease-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+    background: $mid-primary;
+  }
+}
+
+.auth-form__options {
+  width: 100%;
+  margin: $spacer-small 0;
+
+  hr {
+    width: 42.5%;
+    border: 1px solid rgba(#dddddd, 0.25);
+  }
+
+  p {
+    color: grey;
+  }
+}
+
+.auth-form__google {
+  outline: none;
+  border: 1px solid #ddd;
+  width: 100%;
+  padding: $spacer-small * 0.5 $spacer;
+  border-radius: 25px;
+  background: transparent;
+  margin-bottom: $spacer;
+  font-weight: bold;
+  transition: all 100ms ease-out;
+
+  img {
+    $s: 1.5rem;
+    width: $s;
+    height: $s;
+    margin-right: $spacer-small * 0.5;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $primary;
+    color: $primary;
+  }
+}
+
+.auth-form__link {
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: $main-fs * 0.6;
+
+  span {
+    color: $primary;
+    font-weight: bold;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Auth Slides
+.side-content {
+  display: flex;
+  flex-direction: column;
+  padding: $spacer-small;
+}
+
+.side-content__subTitle {
+  color: #808080;
+  margin-bottom: $spacer-small * 0.5;
+  font-size: $main-fs * 0.75;
+  font-weight: normal;
+}
+
+.side-content__title {
+  color: $primary;
+  margin-bottom: $spacer;
+  font-size: $md-fs * 1.25;
+}
+
+.side-content__img {
+  background: $primary;
+  border-radius: 50%;
+  padding: $spacer-md;
+  margin-bottom: $spacer-md;
+
+  svg {
+    $s: 15vw;
+    width: $s;
+    height: $s;
+  }
+}
+
+.side-content__tab {
+  width: 2.5vw;
+  height: 1.5vh;
+  outline: none;
+  border: 2px solid $light-primary;
+  background: transparent;
+  border-radius: 25px;
+  transition: all 200ms ease-out;
+
+  // &:hover {
+  //   cursor: pointer;
+  //   transform: scale(0.9);
+  //   background: $light-primary;
+  // }
+}
+
+.side-content__tabs {
+  width: 35%;
+
+  .active-tab {
+    border: 2px solid $primary;
+    background: $primary;
+  }
+}
+
+// Sign Up Auth Container
+.auth-signup-container {
+  .auth-form {
+    width: 100%;
+  }
+
+  .auth-form__inputs {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    gap: $spacer-small $spacer;
+  }
+
+  .auth-form__input-box {
+    margin-bottom: $spacer-small;
+  }
+
+  .auth-form__submit {
+    width: 25%;
+  }
+
+  .auth-form__google {
+    width: 35%;
+    margin: 0 auto;
+    margin-bottom: $spacer;
+  }
+
+  .auth-form__options {
+    width: 100%;
+
+    hr {
+      width: 45%;
+    }
+  }
+}

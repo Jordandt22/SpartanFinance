@@ -1,0 +1,14 @@
+// Setup
+@import "setup/reset";
+@import "setup/vars";
+@import "setup/mixins";
+@import "utils/alignments";
+
+// Standalone
+@import "./standalone/auth/auth";
+
+.App,
+body {
+  font-family: $font;
+  overflow-x: hidden;
+}
