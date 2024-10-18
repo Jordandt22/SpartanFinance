@@ -1,9 +1,16 @@
 import React from "react";
 
+// Context
+import { useFirebase } from "../../../context/Firebase/Firebase.context";
+import { useGlobal } from "../../../context/Global/Global.context";
+
 // Components
 import AuthForm from "../../standalone/Auth/AuthForm";
 
 function SignUp() {
+  const { createEmailUser } = useFirebase().functions;
+  const { showLoading, closeLoading } = useGlobal().state;
+
   return (
     <div>
       <AuthForm
@@ -39,6 +46,16 @@ function SignUp() {
             placeholder: "Retype your password...",
           },
         ]}
+        onSubmit={(values, { setErrors }) => {
+          const { email, password } = values;
+          showLoading("Creating your new account...");
+          createEmailUser(email, password, (user, error) => {
+            if (error) return console.log(error);
+
+            console.log(user);
+            closeLoading();
+          });
+        }}
         isLogin={false}
       />
     </div>

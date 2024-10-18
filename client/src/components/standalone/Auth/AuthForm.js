@@ -9,12 +9,10 @@ import { LoginSchema, SignupSchema } from "../../../schemas/User.schemas";
 import AuthSideContent from "./AuthSideContent";
 
 function AuthForm(props) {
-  const { initialValues, inputs, isLogin } = props;
+  const { initialValues, inputs, onSubmit, isLogin } = props;
   const formik = useFormik({
     initialValues,
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit,
     validationSchema: isLogin ? LoginSchema : SignupSchema,
   });
 
