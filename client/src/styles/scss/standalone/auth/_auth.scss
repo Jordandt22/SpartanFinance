@@ -1,6 +1,7 @@
 // Auth Component Styles
 
-.auth-container {
+.auth-container,
+.bank-auth-container {
   position: relative;
   min-height: 100vh;
   background: linear-gradient($primary, $mid-primary, $light-primary);

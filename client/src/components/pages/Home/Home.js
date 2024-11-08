@@ -3,9 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 // Contexts
 import { useAuth } from "../../../context/Auth/Auth.context";
+import { useUser } from "../../../context/User/User.context";
+
+// Components
+import ConnectToBank from "./Bank/ConnectToBank";
+import Dashboard from "./Dashboard";
 
 function Home() {
   const { authState } = useAuth();
+  const { userState } = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,7 +21,11 @@ function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
 
-  return <div>Home</div>;
+  return (
+    <div className="home-container">
+      {!userState.bank.connected ? <ConnectToBank /> : <Dashboard />}
+    </div>
+  );
 }
 
 export default Home;

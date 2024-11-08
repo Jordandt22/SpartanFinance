@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // Contexts
 import { useFirebase } from "../../../context/Firebase/Firebase.context";
@@ -10,6 +11,7 @@ import AuthForm from "../../standalone/Auth/AuthForm";
 function Login() {
   const { signInEmailUser } = useFirebase().functions;
   const { showLoading, closeLoading } = useGlobal().state;
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -40,6 +42,7 @@ function Login() {
 
             console.log(user);
             closeLoading();
+            navigate("/");
           });
         }}
         isLogin={true}

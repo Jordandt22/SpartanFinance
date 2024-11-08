@@ -4,6 +4,9 @@
 @import "setup/mixins";
 @import "utils/alignments";
 
+// Pages
+@import "./pages/home/home";
+
 // Standalone
 @import "./standalone/auth/auth";
 

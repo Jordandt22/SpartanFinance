@@ -1,0 +1,122 @@
+// Bank Options
+.bank-options,
+.bank-login {
+  background: white;
+  border-radius: 10px;
+  padding: $spacer * 1.5;
+  min-width: 35vw;
+
+  &__title {
+    font-size: $main-fs;
+    margin-bottom: $spacer;
+  }
+
+  &__text {
+    font-size: $main-fs * 0.7;
+    margin-bottom: $spacer-small * 1.25;
+    color: grey;
+  }
+}
+
+.bank-opt {
+  padding: $spacer-small * 0.5 $spacer-small;
+  border: 2px solid $primary;
+  border-radius: 25px;
+  margin-bottom: $spacer-small;
+
+  img {
+    $s: 1.5rem;
+    width: $s * 1.5;
+    height: $s;
+  }
+
+  p {
+    margin-left: $spacer-small * 0.5;
+    color: $primary;
+    font-weight: bold;
+  }
+}
+
+.bank-opt__connect,
+.bank-opt__active {
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
+  padding: $spacer-small * 0.35 $spacer;
+  transition: all 200ms ease-out;
+}
+
+.bank-opt__connect {
+  background: $primary;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+    background: $dark-primary;
+  }
+}
+
+.bank-opt__active {
+  background: $green;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+    background: $dark-green;
+  }
+}
+
+.bank-opt__not-available {
+  color: $red;
+  font-weight: bold;
+}
+
+.bank-options__next {
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  background: $primary;
+  color: white;
+  font-size: $main-fs * 0.6;
+  padding: $spacer-small * 0.35 $spacer * 1.5;
+  font-weight: bold;
+  margin-top: $spacer-small;
+  transition: all 200ms ease-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+    background: $dark-primary;
+  }
+}
+
+.bank-options__invalid {
+  width: fit-content;
+  outline: none;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  font-size: $main-fs * 0.6;
+  border-radius: 25px;
+  padding: $spacer-small * 0.35 $spacer * 1.5;
+  font-weight: bold;
+  margin-top: $spacer;
+  cursor: not-allowed;
+}
+
+// ---- Bank Login ----
+.bank-login {
+  .bank-opt__active:hover {
+    cursor: pointer;
+    transform: scale(1);
+    background: $green;
+  }
+
+  .auth-form {
+    width: 100%;
+    padding: 0;
+    margin-top: $spacer * 1.5;
+    margin-bottom: $spacer;
+  }
+}

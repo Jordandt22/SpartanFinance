@@ -222,12 +222,126 @@ html {
   align-items: center;
 }
 
-.auth-container {
+.bank-options,
+.bank-login {
+  background: white;
+  border-radius: 10px;
+  padding: 3rem;
+  min-width: 35vw;
+}
+.bank-options__title,
+.bank-login__title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.bank-options__text,
+.bank-login__text {
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+  color: grey;
+}
+
+.bank-opt {
+  padding: 0.5rem 1rem;
+  border: 2px solid #6262ff;
+  border-radius: 25px;
+  margin-bottom: 1rem;
+}
+.bank-opt img {
+  width: 2.25rem;
+  height: 1.5rem;
+}
+.bank-opt p {
+  margin-left: 0.5rem;
+  color: #6262ff;
+  font-weight: bold;
+}
+
+.bank-opt__connect,
+.bank-opt__active {
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
+  padding: 0.35rem 2rem;
+  transition: all 200ms ease-out;
+}
+
+.bank-opt__connect {
+  background: #6262ff;
+}
+.bank-opt__connect:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  background: #3b3bff;
+}
+
+.bank-opt__active {
+  background: #5bd75b;
+}
+.bank-opt__active:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  background: #30c630;
+}
+
+.bank-opt__not-available {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.bank-options__next {
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  background: #6262ff;
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.35rem 3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: all 200ms ease-out;
+}
+.bank-options__next:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  background: #3b3bff;
+}
+
+.bank-options__invalid {
+  width: fit-content;
+  outline: none;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  font-size: 0.9rem;
+  border-radius: 25px;
+  padding: 0.35rem 3rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  cursor: not-allowed;
+}
+
+.bank-login .bank-opt__active:hover {
+  cursor: pointer;
+  transform: scale(1);
+  background: #5bd75b;
+}
+.bank-login .auth-form {
+  width: 100%;
+  padding: 0;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.auth-container,
+.bank-auth-container {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(#6262ff, #7676ff, #9d9dff);
 }
-.auth-container__header {
+.auth-container__header,
+.bank-auth-container__header {
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
@@ -235,12 +349,14 @@ html {
   padding: 0.5rem;
   border-radius: 25px;
 }
-.auth-container__header img {
+.auth-container__header img,
+.bank-auth-container__header img {
   width: 2rem;
   height: 2rem;
   margin-right: 0.5rem;
 }
-.auth-container__header h1 {
+.auth-container__header h1,
+.bank-auth-container__header h1 {
   color: white;
   font-weight: bold;
   font-size: 1.05rem;

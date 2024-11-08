@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // Context
 import { useFirebase } from "../../../context/Firebase/Firebase.context";
@@ -10,15 +11,16 @@ import AuthForm from "../../standalone/Auth/AuthForm";
 function SignUp() {
   const { createEmailUser } = useFirebase().functions;
   const { showLoading, closeLoading } = useGlobal().state;
+  const navigate = useNavigate();
 
   return (
     <div>
       <AuthForm
         initialValues={{
-          email: "",
-          username: "",
-          password: "",
-          confirmPassword: "",
+          email: "test@gmail.com",
+          username: "Jordan",
+          password: "Password123411$",
+          confirmPassword: "Password123411$",
         }}
         inputs={[
           {
@@ -54,6 +56,7 @@ function SignUp() {
 
             console.log(user);
             closeLoading();
+            navigate("/");
           });
         }}
         isLogin={false}

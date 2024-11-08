@@ -45,3 +45,17 @@ export const SignupSchema = Yup.object().shape({
     )
     .required("You must confirm your password."),
 });
+
+export const BankLoginSchema = Yup.object().shape({
+  email: Yup.string()
+    .trim()
+    .min(1, "Please enter a valid email.")
+    .max(100, "Your email exceeds the character limit (100).")
+    .email("Please enter a valid email.")
+    .required("Please enter a valid email."),
+  password: Yup.string()
+    .trim()
+    .min(1, "Please enter your password.")
+    .max(300, "Your password exceeds the character limit (300).")
+    .required("Please enter your password."),
+});
