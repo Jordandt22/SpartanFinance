@@ -17,10 +17,10 @@ function SignUp() {
     <div>
       <AuthForm
         initialValues={{
-          email: "test@gmail.com",
-          username: "Jordan",
-          password: "Password123411$",
-          confirmPassword: "Password123411$",
+          email: "",
+          username: "",
+          password: "",
+          confirmPassword: "",
         }}
         inputs={[
           {
@@ -52,7 +52,12 @@ function SignUp() {
           const { email, password } = values;
           showLoading("Creating your new account...");
           createEmailUser(email, password, (user, error) => {
-            if (error) return console.log(error);
+            if (error) {
+              if (error.type === "FIREBASE") {
+                closeLoading();
+                return setErrors(error.form);
+              }
+            }
 
             console.log(user);
             closeLoading();

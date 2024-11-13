@@ -41,6 +41,31 @@ export const FirebaseContextProvider = (props) => {
   const { showLoading, closeLoading } = useGlobal().state;
   const { authenticateUser, logoutUser } = useAuth();
 
+  // Error Handler
+  const errorHandler = (err) => {
+    const { code } = err;
+    console.log(code);
+
+    switch (code) {
+      case "auth/invalid-credential":
+        return {
+          code,
+          form: { password: "Incorrect email or password." },
+          type: "FIREBASE",
+        };
+
+      case "auth/email-already-in-use":
+        return {
+          code,
+          form: { email: "An account with this email already exists." },
+          type: "FIREBASE",
+        };
+
+      default:
+        return null;
+    }
+  };
+
   // Get Current User
   const getCurrentUser = (cb) => onAuthStateChanged(Auth, (user) => cb(user));
 
@@ -71,15 +96,17 @@ export const FirebaseContextProvider = (props) => {
         authenticateUser(user.accessToken, user.uid);
         cb(user, null);
       })
-      .catch((error) => console.log(error));
+      .catch((err) => cb(null, errorHandler(err)));
 
   // Sign In Email User
   const signInEmailUser = (email, password, cb) =>
-    signInWithEmailAndPassword(Auth, email, password).then((userCredential) => {
-      const user = userCredential.user;
-      authenticateUser(user.accessToken, user.uid);
-      cb(user, null);
-    });
+    signInWithEmailAndPassword(Auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        authenticateUser(user.accessToken, user.uid);
+        cb(user, null);
+      })
+      .catch((err) => cb(null, errorHandler(err)));
 
   // Log Out User
   const logoutFirebaseUser = () =>

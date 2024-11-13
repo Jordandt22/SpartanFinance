@@ -38,7 +38,12 @@ function Login() {
           const { email, password } = values;
           showLoading("Logging you into your account...");
           signInEmailUser(email, password, (user, error) => {
-            if (error) return console.log(error);
+            if (error) {
+              if (error.type === "FIREBASE") {
+                closeLoading();
+                return setErrors(error.form);
+              }
+            }
 
             console.log(user);
             closeLoading();
