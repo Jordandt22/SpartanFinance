@@ -47,9 +47,6 @@ app.use(limiter);
 // Mongoose Connection
 connect();
 
-// Routes
-const API_VERSION = `v${process.env.API_VERSION}`;
-
 // Landing Page Route
 app.get("/", (req, res) => {
   res.send("Spartan Finance API is Up and Running !");
@@ -58,13 +55,16 @@ app.get("/", (req, res) => {
 // API Routes
 
 // Users
-// app.use(`/${API_VERSION}/api/users`, require("./routes/user.rt"));
+app.use(
+  `/v${process.env.API_VERSION}/api/users`,
+  require("./routes/user/user.rt")
+);
 
 // Bank
 // app.use(`/${API_VERSION}/api/bank/:id`, authUser, require("./routes/bank.rt"));
 
 // PORT and Sever
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 4000;
 const server = http.createServer(app);
 server.listen(PORT, () => {
   console.log(`CORS Enabled Server, Listening to port: ${PORT}...`);

@@ -5,7 +5,8 @@ import { AuthContextProvider } from "./Auth/Auth.context";
 import { FirebaseContextProvider } from "./Firebase/Firebase.context";
 import { GlobalContextProvider } from "./Global/Global.context";
 import { UserContextProvider } from "./User/User.context";
-import { BankAPIContextProvider } from "./BankAPI/BankAPI.context";
+import { UserAPIContextProvider } from "./API/UserAPI.context";
+import { BankAPIContextProvider } from "./API/BankAPI.context";
 
 function ContextProvider(props) {
   return (
@@ -13,7 +14,9 @@ function ContextProvider(props) {
       <AuthContextProvider>
         <UserContextProvider>
           <FirebaseContextProvider>
-            <BankAPIContextProvider>{props.children}</BankAPIContextProvider>
+            <UserAPIContextProvider>
+              <BankAPIContextProvider>{props.children}</BankAPIContextProvider>
+            </UserAPIContextProvider>
           </FirebaseContextProvider>
         </UserContextProvider>
       </AuthContextProvider>
