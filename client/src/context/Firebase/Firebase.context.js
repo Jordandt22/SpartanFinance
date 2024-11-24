@@ -111,10 +111,11 @@ export const FirebaseContextProvider = (props) => {
           }
 
           // Auth Finished
-          closeLoading();
           navigate("/");
         });
       }
+
+      closeLoading();
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
