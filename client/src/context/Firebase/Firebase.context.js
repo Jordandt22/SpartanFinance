@@ -48,8 +48,12 @@ export const FirebaseContextProvider = (props) => {
   const {
     userFunctions: { updateUser },
     bankFunctions: { finishBankLogin },
+    resetUserContext,
   } = useUser();
-  const { updateBankData } = useBank().functions;
+  const {
+    functions: { updateBankData },
+    resetBankContext,
+  } = useBank();
   const navigate = useNavigate();
 
   // Error Handler
@@ -140,12 +144,19 @@ export const FirebaseContextProvider = (props) => {
   const logoutFirebaseUser = () =>
     signOut(Auth).then(() => {
       logoutUser();
+      resetUserContext();
+      resetBankContext();
     });
 
   // Delete Firebase User
   const deleteFirebaseUser = () =>
     deleteUser(Auth.currentUser).then(() => {
+      // Delete Database User
+      // ---- Here ----
+
       logoutUser();
+      resetUserContext();
+      resetBankContext();
     });
 
   return (

@@ -56,12 +56,31 @@ export const UserContextProvider = (props) => {
       },
     }));
 
+  // Reset User Context
+  const resetUserContext = () =>
+    setUserState({
+      user: {
+        email: null,
+        username: null,
+      },
+      bank: {
+        state: {
+          connected: false,
+          step: 1,
+        },
+        bankName: "",
+        logo: null,
+        isSvg: false,
+      },
+    });
+
   return (
     <UserContext.Provider
       value={{
         userState,
         userFunctions: { updateUser },
         bankFunctions: { finishBankLogin, setToStepTwo },
+        resetUserContext,
       }}
     >
       {props.children}

@@ -15,8 +15,19 @@ export const BankContextProvider = (props) => {
   const updateBankData = (bankData) =>
     setBankData((prevState) => ({ ...prevState, ...bankData }));
 
+  // Reset Bank Context
+  const resetBankContext = () =>
+    setBankData({
+      email: null,
+      password: null,
+      accounts: [],
+      cards: [],
+    });
+
   return (
-    <BankContext.Provider value={{ bankData, functions: { updateBankData } }}>
+    <BankContext.Provider
+      value={{ bankData, functions: { updateBankData }, resetBankContext }}
+    >
       {props.children}
     </BankContext.Provider>
   );
