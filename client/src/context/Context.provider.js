@@ -7,17 +7,22 @@ import { GlobalContextProvider } from "./Global/Global.context";
 import { UserContextProvider } from "./User/User.context";
 import { UserAPIContextProvider } from "./API/UserAPI.context";
 import { BankAPIContextProvider } from "./API/BankAPI.context";
+import { BankContextProvider } from "./User/Bank.context";
 
 function ContextProvider(props) {
   return (
     <GlobalContextProvider>
       <AuthContextProvider>
         <UserContextProvider>
-          <FirebaseContextProvider>
+          <BankContextProvider>
             <UserAPIContextProvider>
-              <BankAPIContextProvider>{props.children}</BankAPIContextProvider>
+              <BankAPIContextProvider>
+                <FirebaseContextProvider>
+                  {props.children}
+                </FirebaseContextProvider>
+              </BankAPIContextProvider>
             </UserAPIContextProvider>
-          </FirebaseContextProvider>
+          </BankContextProvider>
         </UserContextProvider>
       </AuthContextProvider>
     </GlobalContextProvider>

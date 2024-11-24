@@ -7,6 +7,7 @@ import { useGlobal } from "../../../context/Global/Global.context";
 import { useUserAPI } from "../../../context/API/UserAPI.context";
 import { useAuth } from "../../../context/Auth/Auth.context";
 import { useUser } from "../../../context/User/User.context";
+import { useBank } from "../../../context/User/Bank.context";
 
 // Components
 import AuthForm from "../../standalone/Auth/AuthForm";
@@ -18,8 +19,9 @@ function SignUp() {
   const { authenticateUser } = useAuth();
   const {
     userFunctions: { updateUser },
-    bankFunctions: { updateBank },
+    bankFunctions: { finishBankLogin },
   } = useUser();
+  const { updateBankData } = useBank().functions;
   const navigate = useNavigate();
 
   return (
@@ -85,7 +87,10 @@ function SignUp() {
 
                 // Check if BankID exists
                 const { user } = data;
-                if (user.bankID) updateBank(user.bankID, data.bankInfo);
+                if (user.bankID) {
+                  updateBankData({ bankID: user.bankID, ...data.bankInfo });
+                  finishBankLogin();
+                }
 
                 // Auth Finished
                 closeLoading();

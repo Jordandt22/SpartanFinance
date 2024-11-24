@@ -10,7 +10,9 @@ import BankLogin from "./BankLogin";
 function ConnectToBank() {
   const {
     userState: {
-      bank: { step },
+      bank: {
+        state: { step },
+      },
     },
   } = useUser();
 

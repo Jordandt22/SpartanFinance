@@ -1,4 +1,5 @@
 const { verifyAccessToken } = require("../firebase/firebase.functions");
+const UserModel = require("../models/db");
 
 module.exports = {
   authUser: async (req, res, next) => {
@@ -19,6 +20,20 @@ module.exports = {
         error: { message: "Must provide valid credentials." },
       });
 
+    req.uid = uid;
+    return next();
+  },
+  checkIfUserExist: async (req, res, next) => {
+    const uid = req.uid;
+
+    // Find the user document by UID
+    const user = await UserModel.findOne({ uid });
+
+    // User not found
+    if (!user)
+      return res.status(404).json({ user: null, error: "User not found" });
+
+    req.user = user;
     return next();
   },
 };

@@ -10,9 +10,10 @@ export const UserContextProvider = (props) => {
       username: null,
     },
     bank: {
-      bankID: null,
-      connected: false,
-      step: 1,
+      state: {
+        connected: false,
+        step: 1,
+      },
       bankName: "",
       logo: null,
       isSvg: false,
@@ -24,20 +25,9 @@ export const UserContextProvider = (props) => {
     setUserState((prevState) => ({
       ...prevState,
       user: {
+        ...prevState.user,
         email,
         username,
-      },
-    }));
-
-  // Update Bank Info
-  const updateBank = (bankID, bankInfo) =>
-    setUserState((prevState) => ({
-      ...prevState,
-      bank: {
-        bankID,
-        connected: true,
-        step: 0,
-        ...bankInfo,
       },
     }));
 
@@ -45,7 +35,25 @@ export const UserContextProvider = (props) => {
   const setToStepTwo = (bankInfo) =>
     setUserState((userState) => ({
       ...userState,
-      bank: { ...userState.bank, step: 2, ...bankInfo },
+      bank: {
+        ...userState.bank,
+        state: { ...userState.bank.state, step: 2 },
+        ...bankInfo,
+      },
+    }));
+
+  // Finish Bank Login
+  const finishBankLogin = () =>
+    setUserState((prevState) => ({
+      ...prevState,
+      bank: {
+        ...prevState.bank,
+        state: {
+          ...prevState.bank.state,
+          connected: true,
+          step: 0,
+        },
+      },
     }));
 
   return (
@@ -53,7 +61,7 @@ export const UserContextProvider = (props) => {
       value={{
         userState,
         userFunctions: { updateUser },
-        bankFunctions: { updateBank, setToStepTwo },
+        bankFunctions: { finishBankLogin, setToStepTwo },
       }}
     >
       {props.children}

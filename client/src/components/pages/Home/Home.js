@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      {!userState.bank.connected ? <ConnectToBank /> : <Dashboard />}
+      {!userState.bank.state.connected ? <ConnectToBank /> : <Dashboard />}
     </div>
   );
 }

@@ -4,13 +4,13 @@ const {
   getUser,
   deleteUser,
 } = require("../../controllers/user/user.ct");
-const { authUser } = require("../../middleware/auth.mw");
+const { authUser, checkIfUserExist } = require("../../middleware/auth.mw");
 
 // POST: Create User
 userRouter.post("/:uid", authUser, createUser);
 
 // GET: Get User
-userRouter.get("/:uid", authUser, getUser);
+userRouter.get("/:uid", authUser, checkIfUserExist, getUser);
 
 // DELETE: Delete User
 userRouter.delete("/:uid", authUser, deleteUser);

@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const http = require("http");
 const rateLimiter = require("express-rate-limit");
 const slowDown = require("express-slow-down");
+const { authUser } = require("./middleware/auth.mw");
 const connect = require("./models/db");
 const app = express();
 
@@ -61,7 +62,11 @@ app.use(
 );
 
 // Bank
-// app.use(`/${API_VERSION}/api/bank/:id`, authUser, require("./routes/bank.rt"));
+app.use(
+  `/v${process.env.API_VERSION}/api/bank/:uid`,
+  authUser,
+  require("./routes/bank/bank.rt")
+);
 
 // PORT and Sever
 const PORT = process.env.PORT || 4000;

@@ -23,11 +23,18 @@ export const UserAPIContextProvider = (props) => {
       .then((res) => cb(res.data, null))
       .catch((err) => cb(null, err));
 
+  // GET: Get User
+  const getUser = (uid, accessToken, cb) =>
+    Axios.get(getUserAPIURI(uid), config(accessToken))
+      .then((res) => cb(res.data, null))
+      .catch((err) => cb(null, err));
+
   return (
     <UserAPIContext.Provider
       value={{
         functions: {
           createUser,
+          getUser,
         },
       }}
     >

@@ -7,6 +7,8 @@ import { BankLoginSchema } from "../../../../schemas/User.schemas";
 // Contexts
 import { useUser } from "../../../../context/User/User.context";
 import { useGlobal } from "../../../../context/Global/Global.context";
+import { useBankAPI } from "../../../../context/API/BankAPI.context";
+import { useBank } from "../../../../context/User/Bank.context";
 
 function BankLogin() {
   const {
@@ -15,12 +17,38 @@ function BankLogin() {
     },
   } = useUser();
   const { showLoading, closeLoading } = useGlobal().state;
+  const { connectToBank } = useBankAPI().functions;
+  const {
+    bankFunctions: { finishBankLogin },
+  } = useUser();
+  const { updateBankData } = useBank().functions;
 
+  // Formik Config
   const formik = useFormik({
-    initialValues: { email: "", password: "" },
+    initialValues: {
+      email: "test123411@gmail.com",
+      password: "Password123411$",
+    },
     onSubmit: (values) => {
+      const { email, password } = values;
       showLoading("Connecting to your bank account...");
-      console.log(values);
+      connectToBank(
+        { bankEmail: email, bankPassword: password },
+        (data, error) => {
+          if (error || data.error) {
+            return console.log(error);
+          }
+
+          const {
+            user: { bankID, bankInfo },
+          } = data;
+          updateBankData({ bankID, ...bankInfo });
+
+          // End of Bank Login
+          finishBankLogin();
+          closeLoading();
+        }
+      );
     },
     validationSchema: BankLoginSchema,
   });

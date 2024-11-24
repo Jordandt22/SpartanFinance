@@ -1,8 +1,12 @@
 import React, { createContext, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Contexts
 import { useAuth } from "../Auth/Auth.context";
 import { useGlobal } from "../Global/Global.context";
+import { useUserAPI } from "../API/UserAPI.context";
+import { useUser } from "../User/User.context";
+import { useBank } from "../User/Bank.context";
 
 // Firebase
 import { initializeApp } from "firebase/app";
@@ -40,6 +44,13 @@ export const FirebaseContextProvider = (props) => {
   const Auth = getAuth();
   const { showLoading, closeLoading } = useGlobal().state;
   const { authenticateUser, logoutUser } = useAuth();
+  const { getUser } = useUserAPI().functions;
+  const {
+    userFunctions: { updateUser },
+    bankFunctions: { finishBankLogin },
+  } = useUser();
+  const { updateBankData } = useBank().functions;
+  const navigate = useNavigate();
 
   // Error Handler
   const errorHandler = (err) => {
@@ -77,12 +88,29 @@ export const FirebaseContextProvider = (props) => {
         const { accessToken, uid } = user;
 
         // Get Information from Database
-        console.log(user);
+        getUser(uid, accessToken, (data, APIError) => {
+          if (APIError || data.error) return console.log(APIError.error);
 
-        authenticateUser(accessToken, uid);
+          // Change Auth State to Logged In
+          authenticateUser(accessToken, uid);
+
+          const { email, username } = data?.user;
+
+          // Update User Info in User Context
+          updateUser(email, username);
+
+          // Check if BankID exists
+          const bankID = data?.user?.bankID;
+          if (bankID) {
+            updateBankData({ bankID, ...data?.user?.bankInfo });
+            finishBankLogin();
+          }
+
+          // Auth Finished
+          closeLoading();
+          navigate("/");
+        });
       }
-
-      closeLoading();
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

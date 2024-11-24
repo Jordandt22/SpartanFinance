@@ -1,4 +1,6 @@
 const UserModel = require("../../models/db");
+const Axios = require("axios");
+const { BANK_API_URI } = process.env;
 
 module.exports = {
   createUser: async (req, res, next) => {
@@ -35,26 +37,23 @@ module.exports = {
   },
   getUser: async (req, res) => {
     try {
-      const { uid } = req.params;
-
-      // Find the user document by UID
-      const user = await UserModel.findOne({ uid });
-
-      // User not found
-
-      if (!user)
-        return res.status(404).json({ user: null, error: "User not found" });
+      const user = req.user;
 
       // Check if the User has Connected to a Bank
       if (!user.bankID)
         return res
           .status(200)
-          .json({ user: { ...user, bankInfo: null }, error: null });
+          .json({ user: { ...user._doc, bankInfo: null }, error: null });
 
       // Find Bank Info and Retrieve Info from Dummy Bank
-      //  ---- Here ----
+      const dummyBankAPICall = await Axios.get(
+        BANK_API_URI + `/users/${user.bankID}`
+      );
+      const bankData = dummyBankAPICall?.data?.user;
 
-      res.status(200).json({ user, error: null });
+      res
+        .status(200)
+        .json({ user: { ...user._doc, bankInfo: bankData }, error: null });
     } catch (error) {
       // Error occurred while fetching user information
       console.error("Error fetching user information:", error);
