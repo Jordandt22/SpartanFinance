@@ -26,8 +26,8 @@ function BankLogin() {
   // Formik Config
   const formik = useFormik({
     initialValues: {
-      email: "test123411@gmail.com",
-      password: "Password123411$",
+      email: "",
+      password: "",
     },
     onSubmit: (values) => {
       const { email, password } = values;

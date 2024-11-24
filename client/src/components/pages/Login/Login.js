@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Contexts
@@ -16,7 +16,7 @@ function Login() {
   const { signInEmailUser } = useFirebase().functions;
   const { showLoading, closeLoading } = useGlobal().state;
   const { getUser } = useUserAPI().functions;
-  const { authenticateUser } = useAuth();
+  const { authState, authenticateUser } = useAuth();
   const {
     userFunctions: { updateUser },
     bankFunctions: { finishBankLogin },
@@ -24,12 +24,20 @@ function Login() {
   const { updateBankData } = useBank().functions;
   const navigate = useNavigate();
 
+  // IF Auth send to Home Page
+  useEffect(() => {
+    if (authState.isLoggedIn) {
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authState]);
+
   return (
     <div>
       <AuthForm
         initialValues={{
-          email: "test@gmail.com",
-          password: "Password123411$",
+          email: "",
+          password: "",
         }}
         inputs={[
           {

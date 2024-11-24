@@ -7,7 +7,7 @@ import { useUser } from "../../../context/User/User.context";
 
 // Components
 import ConnectToBank from "./Bank/ConnectToBank";
-import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard/Dashboard";
 
 function Home() {
   const { authState } = useAuth();
