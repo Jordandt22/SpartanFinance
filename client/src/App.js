@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 // Contexts
 import { useGlobal } from "./context/Global/Global.context";
 import { useAuth } from "./context/Auth/Auth.context";
+import { useUser } from "./context/User/User.context";
 
 // Components
 import Home from "./components/pages/Home/Home";
@@ -17,10 +18,17 @@ function App() {
     state: { loading },
   } = useGlobal();
   const { authState } = useAuth();
+  const {
+    userState: {
+      bank: {
+        state: { connected },
+      },
+    },
+  } = useUser();
 
   return (
     <div className="App">
-      {authState.isLoggedIn && <Sidebar />}
+      {authState.isLoggedIn && connected && <Sidebar />}
 
       <Routes>
         {/* For Mobile <Navigate to="/auth" replace /> */}

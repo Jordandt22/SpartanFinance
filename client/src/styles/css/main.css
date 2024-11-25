@@ -334,11 +334,8 @@ html {
   margin-bottom: 2rem;
 }
 
-.home-container {
-  margin-left: 20%;
-}
-
 .dashboard {
+  margin-left: 20%;
   padding: 4rem;
   padding-top: 8rem;
 }
