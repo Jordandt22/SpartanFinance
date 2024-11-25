@@ -334,117 +334,53 @@ html {
   margin-bottom: 2rem;
 }
 
-.db-sidebar {
-  flex-direction: column;
-  background: #f5f6fa;
-  height: 100vh;
-  width: 20%;
-  padding: 2rem 0;
-}
-.db-sidebar hr {
-  width: 100%;
-  border: 0.5px solid rgba(128, 128, 128, 0.1);
+.home-container {
+  margin-left: 20%;
 }
 
-.db-sidebar__logo-box {
-  background: #3b3bff;
-  padding: 0.25rem 0.35rem;
-  border-radius: 25px;
-}
-.db-sidebar__logo-box img {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 0.5rem;
-}
-.db-sidebar__logo-box h1 {
-  color: white;
-  font-weight: bold;
-  font-size: 0.9rem;
-  margin-right: 1rem;
+.dashboard {
+  padding: 4rem;
+  padding-top: 8rem;
 }
 
-.db-sidebar__btns {
-  margin-top: 2rem;
+.user-info {
+  margin-bottom: 8rem;
 }
-.db-sidebar__btns button {
-  outline: none;
-  border: none;
+.user-info .disabled-link {
+  color: grey;
+  border-color: grey;
+}
+.user-info .disabled-link:hover {
+  cursor: not-allowed;
   background: transparent;
-  color: #6262ff;
-  font-weight: bold;
-  font-size: 0.9rem;
-  border-radius: 25px;
-  transition: all 200ms ease-out;
-  margin-bottom: 1.25rem;
-  padding: 0.5rem;
-  padding-right: 2rem;
+  color: grey;
 }
-.db-sidebar__btns button span {
-  background: white;
-  border-radius: 50%;
-  padding: 3.5px;
+
+.user-info__title,
+.ba-info__title {
+  font-size: 1.5rem;
   margin-right: 1rem;
 }
-.db-sidebar__btns button:hover {
-  cursor: pointer;
+
+.user-info__link,
+.ba-info__link {
+  border: 2px solid #6262ff;
+  border-radius: 25px;
+  color: #6262ff;
+  text-decoration: none;
+  padding: 0.35rem 2rem;
+  font-size: 0.9rem;
+  transition: all 200ms ease-out;
+}
+.user-info__link:hover,
+.ba-info__link:hover {
   background: #6262ff;
   color: white;
 }
 
-.db-sidebar__links {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-.db-sidebar__links a {
-  margin-bottom: 1.75rem;
-  text-decoration: none;
-  color: #808080;
-}
-.db-sidebar__links a svg {
-  margin-right: 1rem;
-}
-.db-sidebar__links .fill-icon:hover {
-  color: #6262ff;
-}
-.db-sidebar__links .fill-icon:hover svg path {
-  fill: #6262ff;
-}
-.db-sidebar__links .stroke-icon:hover {
-  color: #6262ff;
-}
-.db-sidebar__links .stroke-icon:hover svg path {
-  stroke: #6262ff;
-}
-.db-sidebar__links .active-fill {
-  color: #6262ff;
-}
-.db-sidebar__links .active-fill svg path {
-  fill: #6262ff;
-}
-.db-sidebar__links .active-stroke {
-  color: #6262ff;
-}
-.db-sidebar__links .active-stroke svg path {
-  stroke: #6262ff;
-}
-
-.db-sidebar__logout {
-  outline: none;
-  background: transparent;
-  border: 2px solid #ff4d4d;
-  border-radius: 25px;
-  padding: 0.5rem 2rem;
-  width: 80%;
-  color: #ff4d4d;
-  font-weight: bold;
+.user-info__disclaimer {
   margin-top: 2rem;
-  transition: all 200ms ease-out;
-}
-.db-sidebar__logout:hover {
-  cursor: pointer;
-  color: white;
-  background: #ff4d4d;
+  color: #808080;
 }
 
 .auth-container,
@@ -677,6 +613,120 @@ html {
 }
 .auth-signup-container .auth-form__options hr {
   width: 45%;
+}
+
+.db-sidebar {
+  position: absolute;
+  flex-direction: column;
+  background: #f5f6fa;
+  height: 100vh;
+  width: 20%;
+  padding: 2rem 0;
+}
+.db-sidebar hr {
+  width: 100%;
+  border: 0.5px solid rgba(128, 128, 128, 0.1);
+}
+
+.db-sidebar__logo-box {
+  background: #3b3bff;
+  padding: 0.25rem 0.35rem;
+  border-radius: 25px;
+}
+.db-sidebar__logo-box img {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+.db-sidebar__logo-box h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.db-sidebar__btns {
+  margin-top: 2rem;
+}
+.db-sidebar__btns button {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: #6262ff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 25px;
+  transition: all 200ms ease-out;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem;
+  padding-right: 2rem;
+}
+.db-sidebar__btns button span {
+  background: white;
+  border-radius: 50%;
+  padding: 3.5px;
+  margin-right: 1rem;
+}
+.db-sidebar__btns button:hover {
+  cursor: pointer;
+  background: #6262ff;
+  color: white;
+}
+
+.db-sidebar__links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.db-sidebar__links a {
+  margin-bottom: 1.75rem;
+  text-decoration: none;
+  color: #808080;
+}
+.db-sidebar__links a svg {
+  margin-right: 1rem;
+}
+.db-sidebar__links .fill-icon:hover {
+  color: #6262ff;
+}
+.db-sidebar__links .fill-icon:hover svg path {
+  fill: #6262ff;
+}
+.db-sidebar__links .stroke-icon:hover {
+  color: #6262ff;
+}
+.db-sidebar__links .stroke-icon:hover svg path {
+  stroke: #6262ff;
+}
+.db-sidebar__links .active-fill {
+  color: #6262ff;
+}
+.db-sidebar__links .active-fill svg path {
+  fill: #6262ff;
+}
+.db-sidebar__links .active-stroke {
+  color: #6262ff;
+}
+.db-sidebar__links .active-stroke svg path {
+  stroke: #6262ff;
+}
+
+.db-sidebar__logout {
+  outline: none;
+  background: transparent;
+  border: 2px solid #ff4d4d;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  width: 80%;
+  color: #ff4d4d;
+  font-weight: bold;
+  margin-top: 2rem;
+  transition: all 200ms ease-out;
+}
+.db-sidebar__logout:hover {
+  cursor: pointer;
+  color: white;
+  background: #ff4d4d;
 }
 
 .App,

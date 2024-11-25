@@ -4,10 +4,14 @@ import React, { createContext, useContext, useState } from "react";
 const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
 export const UserContextProvider = (props) => {
-  const [userState, setUserState] = useState({
+  const defaultUserState = {
     user: {
       email: null,
       username: null,
+      monthlyIncome: 0,
+      monthlySpending: 0,
+      monthlySavings: 0,
+      infoAdded: false,
     },
     bank: {
       state: {
@@ -18,7 +22,8 @@ export const UserContextProvider = (props) => {
       logo: null,
       isSvg: false,
     },
-  });
+  };
+  const [userState, setUserState] = useState(defaultUserState);
 
   // Update User Info
   const updateUser = (email, username) =>
@@ -57,22 +62,7 @@ export const UserContextProvider = (props) => {
     }));
 
   // Reset User Context
-  const resetUserContext = () =>
-    setUserState({
-      user: {
-        email: null,
-        username: null,
-      },
-      bank: {
-        state: {
-          connected: false,
-          step: 1,
-        },
-        bankName: "",
-        logo: null,
-        isSvg: false,
-      },
-    });
+  const resetUserContext = () => setUserState(defaultUserState);
 
   return (
     <UserContext.Provider

@@ -1,13 +1,16 @@
 import React from "react";
 
-// Contexts
-import { useFirebase } from "../../../../context/Firebase/Firebase.context";
+// Components
+import UserInfo from "./UserInfo";
+import BankAccountInfo from "./BankAccountInfo";
 
 function Dashboard() {
-  const { logoutFirebaseUser } = useFirebase().functions;
-
   return (
-    <div className="dashboard-container">
+    <div className="dashboard">
+      {/* User Info */}
+      <UserInfo />
+      {/* Bank Account Info */}
+      <BankAccountInfo />
     </div>
   );
 }

@@ -1,134 +1,53 @@
 // Home Page Styles
 @import "./bank-auth";
 
-// Dashboard Styles
-.db-sidebar {
-  flex-direction: column;
-  background: #f5f6fa;
-  height: 100vh;
-  width: 20%;
-  padding: $spacer 0;
-
-  hr {
-    width: 100%;
-    border: 0.5px solid rgba(#808080, 0.1);
-  }
+.home-container {
+  margin-left: 20%;
 }
 
-.db-sidebar__logo-box {
-  background: $dark-primary;
-  padding: $spacer-small * 0.25 $spacer-small * 0.35;
-  border-radius: 25px;
-
-  img {
-    $s: 2rem;
-    width: $s;
-    height: $s;
-    margin-right: $spacer-small * 0.5;
-  }
-
-  h1 {
-    color: white;
-    font-weight: bold;
-    font-size: $main-fs * 0.6;
-    margin-right: $spacer-small;
-  }
+.dashboard {
+  padding: $spacer-md;
+  padding-top: $spacer-lg;
 }
 
-.db-sidebar__btns {
-  margin-top: $spacer;
+.user-info {
+  margin-bottom: $spacer-lg;
 
-  button {
-    outline: none;
-    border: none;
-    background: transparent;
-    color: $primary;
-    font-weight: bold;
-    font-size: $main-fs * 0.6;
-    border-radius: 25px;
-    transition: all 200ms ease-out;
-    margin-bottom: $spacer-small * 1.25;
-    padding: $spacer-small * 0.5;
-    padding-right: $spacer;
-
-    span {
-      background: white;
-      border-radius: 50%;
-      padding: 3.5px;
-      margin-right: $spacer-small;
-    }
+  .disabled-link {
+    color: grey;
+    border-color: grey;
 
     &:hover {
-      cursor: pointer;
-      background: $primary;
-      color: white;
+      cursor: not-allowed;
+      background: transparent;
+      color: grey;
     }
   }
 }
 
-.db-sidebar__links {
-  display: flex;
-  flex-direction: column;
-  margin-top: $spacer-small;
-
-  a {
-    margin-bottom: $spacer-small * 1.75;
-    text-decoration: none;
-    color: #808080;
-
-    svg {
-      margin-right: $spacer-small;
-    }
-  }
-
-  .fill-icon:hover {
-    color: $primary;
-
-    svg path {
-      fill: $primary;
-    }
-  }
-
-  .stroke-icon:hover {
-    color: $primary;
-
-    svg path {
-      stroke: $primary;
-    }
-  }
-
-  .active-fill {
-    color: $primary;
-
-    svg path {
-      fill: $primary;
-    }
-  }
-
-  .active-stroke {
-    color: $primary;
-
-    svg path {
-      stroke: $primary;
-    }
-  }
+.user-info__title,
+.ba-info__title {
+  font-size: $main-fs;
+  margin-right: $spacer-small;
 }
 
-.db-sidebar__logout {
-  outline: none;
-  background: transparent;
-  border: 2px solid $red;
+.user-info__link,
+.ba-info__link {
+  border: 2px solid $primary;
   border-radius: 25px;
-  padding: $spacer-small * 0.5 $spacer;
-  width: 80%;
-  color: $red;
-  font-weight: bold;
-  margin-top: $spacer;
+  color: $primary;
+  text-decoration: none;
+  padding: $spacer-small * 0.35 $spacer;
+  font-size: $main-fs * 0.6;
   transition: all 200ms ease-out;
 
   &:hover {
-    cursor: pointer;
+    background: $primary;
     color: white;
-    background: $red;
   }
+}
+
+.user-info__disclaimer {
+  margin-top: $spacer;
+  color: #808080;
 }
