@@ -17,6 +17,10 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  cursor: pointer !important;
+}
+
 // Loading Spinner
 .loading-shadow {
   flex-direction: column;

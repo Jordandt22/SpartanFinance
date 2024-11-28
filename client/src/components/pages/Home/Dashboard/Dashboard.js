@@ -2,15 +2,18 @@ import React from "react";
 
 // Components
 import UserInfo from "./UserInfo";
-import BankAccountInfo from "./BankAccountInfo";
+import BankAccounts from "./BankAccount";
+import BankCards from "./BankCards";
 
 function Dashboard() {
   return (
     <div className="dashboard">
       {/* User Info */}
       <UserInfo />
-      {/* Bank Account Info */}
-      <BankAccountInfo />
+      {/* Bank Accouns Info */}
+      <BankAccounts />
+      {/* Bank Cards Info */}
+      <BankCards />
     </div>
   );
 }

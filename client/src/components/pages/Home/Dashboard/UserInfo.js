@@ -22,6 +22,9 @@ function UserInfo() {
         >
           Track Spending
         </NavLink>
+        <button type="button" className="user-info__update">
+          {infoAdded ? "Update" : "Add"} Info
+        </button>
       </header>
       {/* Finance Info */}
       {infoAdded ? (

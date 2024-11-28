@@ -2,13 +2,13 @@
 @import "./bank-auth";
 
 .dashboard {
-  margin-left: 20%;
+  margin-left: 17.5%;
   padding: $spacer-md;
-  padding-top: $spacer-lg;
+  padding-top: $spacer-md * 1.25;
 }
 
 .user-info {
-  margin-bottom: $spacer-lg;
+  margin-bottom: $spacer-md * 1.5;
 
   .disabled-link {
     color: grey;
@@ -24,12 +24,13 @@
 
 .user-info__title,
 .ba-info__title {
-  font-size: $main-fs;
+  font-size: $main-fs * 0.8;
   margin-right: $spacer-small;
 }
 
 .user-info__link,
-.ba-info__link {
+.ba-info__link,
+.user-info__update {
   border: 2px solid $primary;
   border-radius: 25px;
   color: $primary;
@@ -47,4 +48,134 @@
 .user-info__disclaimer {
   margin-top: $spacer;
   color: #808080;
+}
+
+.user-info__update {
+  outline: none;
+  border-color: $orange;
+  color: $orange;
+  background: transparent;
+  margin-left: $spacer-small;
+
+  &:hover {
+    background: $orange;
+    color: white;
+  }
+}
+
+// Bank Account
+.ba-info__header {
+  margin-bottom: $spacer-small * 1.5;
+}
+
+.bank-account {
+  width: 30vw;
+  background: white;
+  border-radius: 15px;
+  padding: $spacer-small * 1.5;
+  box-shadow: 0 0 4px 0 rgba(black, 0.25);
+  margin-right: $spacer;
+  margin-bottom: $spacer-md * 1.25;
+
+  &__header {
+    margin-bottom: $spacer-small * 0.65;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    font-size: $main-fs * 0.8;
+  }
+
+  &__id {
+    color: rgba(#808080, 0.5);
+    margin-bottom: $spacer-small * 1.75;
+    font-size: $main-fs * 0.5;
+  }
+
+  &__balance {
+    color: $primary;
+    font-size: $md-fs * 1.25;
+  }
+
+  &__more {
+    outline: none;
+    background: transparent;
+    border: none;
+
+    svg {
+      transform: scale(1.15);
+      transition: all 200ms ease-out;
+
+      path {
+        transition: all 200ms ease-out;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      svg {
+        transform: scale(1.35);
+
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+}
+
+// Bank Cards
+.bank-card {
+  .bank-account__balance {
+    font-size: $md-fs;
+    font-weight: 300;
+  }
+
+  &__progress {
+    width: 100%;
+    background: #f5f6fa;
+    border-radius: 25px;
+    margin-top: $spacer-small * 1.5;
+    height: 1.5vh;
+  }
+
+  &__progress-amount {
+    height: 100%;
+    border-radius: 25px;
+  }
+
+  &__spent {
+    margin-top: $spacer-small * 0.5;
+  }
+
+  &__pl-green {
+    .bank-card__progress-amount {
+      background: $green;
+    }
+
+    .bank-card__spent {
+      color: $green;
+    }
+  }
+
+  &__pl-yellow {
+    .bank-card__progress-amount {
+      background: $yellow;
+    }
+
+    .bank-card__spent {
+      color: $yellow;
+    }
+  }
+
+  &__pl-red {
+    .bank-card__progress-amount {
+      background: $red;
+    }
+
+    .bank-card__spent {
+      color: $red;
+    }
+  }
 }
