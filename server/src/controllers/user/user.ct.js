@@ -77,4 +77,29 @@ module.exports = {
       res.status(500).json({ error: "Internal server error" });
     }
   },
+
+  // Financial Information
+  updateFinancialInfo: async (req, res) => {
+    const { monthlyIncome, monthlySpending, monthlySavings } = req.body;
+
+    try {
+      const { uid } = req.user;
+      const updatedUser = await UserModel.findOneAndUpdate(
+        { uid },
+        {
+          financialInfo: {
+            monthlyIncome,
+            monthlySpending,
+            monthlySavings,
+          },
+        },
+        { returnDocument: "after" }
+      );
+
+      res.status(200).json({ user: updatedUser, error: null });
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      res.status(500).json({ user: null, error: "Internal server error" });
+    }
+  },
 };

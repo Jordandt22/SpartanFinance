@@ -179,3 +179,23 @@
     }
   }
 }
+
+// Financial Information
+.financial-info {
+  margin-top: $spacer * 1.25;
+  margin-right: $spacer;
+  border-right: 1px solid rgba(#dddddd, 0.85);
+  padding-right: $spacer;
+
+  &__label {
+    color: #808080;
+    font-size: $main-fs * 0.8;
+    font-weight: 500;
+    margin-bottom: $spacer-small;
+  }
+
+  &__amount {
+    color: $primary;
+    font-size: $main-fs * 1.25;
+  }
+}

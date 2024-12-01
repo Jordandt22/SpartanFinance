@@ -12,10 +12,12 @@ import SignUp from "./components/pages/SignUp/SignUp";
 import Login from "./components/pages/Login/Login";
 import LoadingSpinner from "./components/standalone/UI/LoadingSpinner";
 import Sidebar from "./components/standalone/Navbar/Sidebar";
+import UserInfoForm from "./components/standalone/Forms/UserInfoForm";
 
 function App() {
   const {
     state: { loading },
+    UI: { showUserInfoForm },
   } = useGlobal();
   const { authState } = useAuth();
   const {
@@ -39,6 +41,9 @@ function App() {
         {/* Not Found */}
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
+
+      {/* User Info Form */}
+      {showUserInfoForm && <UserInfoForm />}
 
       {/* Loading Spinner */}
       {loading.status && <LoadingSpinner />}

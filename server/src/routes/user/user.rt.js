@@ -3,16 +3,32 @@ const {
   createUser,
   getUser,
   deleteUser,
+  updateFinancialInfo,
 } = require("../../controllers/user/user.ct");
 const { authUser, checkIfUserExist } = require("../../middleware/auth.mw");
+const {
+  bodyValidator,
+  schemas: { UserSchema, UserFinancalInfoSchema },
+} = require("../../middleware/validator.mw");
 
 // POST: Create User
-userRouter.post("/:uid", authUser, createUser);
+userRouter.post("/:uid", authUser, bodyValidator(UserSchema), createUser);
 
 // GET: Get User
 userRouter.get("/:uid", authUser, checkIfUserExist, getUser);
 
 // DELETE: Delete User
 userRouter.delete("/:uid", authUser, deleteUser);
+
+// ---- Financial Information ----
+
+// PATCH: Update User Financial Information
+userRouter.patch(
+  "/:uid/financial",
+  authUser,
+  checkIfUserExist,
+  bodyValidator(UserFinancalInfoSchema),
+  updateFinancialInfo
+);
 
 module.exports = userRouter;

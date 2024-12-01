@@ -59,3 +59,18 @@ export const BankLoginSchema = Yup.object().shape({
     .max(300, "Your password exceeds the character limit (300).")
     .required("Please enter your password."),
 });
+
+export const UserFinanceSchema = Yup.object().shape({
+  monthlyIncome: Yup.number()
+    .min(0, "Value must be between 0 and 1 million.")
+    .max(1000 * 1000, "Value must be between 0 and 1 million.")
+    .required("Must enter your monthly income."),
+  monthlySpending: Yup.number()
+    .min(0, "Value must be between 0 and 1 million.")
+    .max(1000 * 1000, "Value must be between 0 and 1 million.")
+    .required("Must enter your monthly spending."),
+  monthlySavings: Yup.number()
+    .min(0, "Value must be between 0 and 1 million.")
+    .max(1000 * 1000, "Value must be between 0 and 1 million.")
+    .required("Must enter your monthly savings."),
+});

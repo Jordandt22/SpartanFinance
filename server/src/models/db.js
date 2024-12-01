@@ -27,6 +27,11 @@ const UserSchema = new mongoose.Schema({
   bankID: {
     type: String,
   },
+  financialInfo: {
+    monthlyIncome: Number,
+    monthlySpending: Number,
+    monthlySavings: Number,
+  },
 });
 
 // Collection part

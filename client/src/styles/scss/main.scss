@@ -4,12 +4,13 @@
 @import "setup/mixins";
 @import "utils/alignments";
 
-// Pages
-@import "./pages/home/home";
-
 // Standalone
 @import "./standalone/auth/auth";
 @import "./standalone/navbar/navbar";
+@import "./standalone/forms/forms";
+
+// Pages
+@import "./pages/home/home";
 
 .App,
 body {
@@ -30,6 +31,7 @@ button {
   right: 0;
   bottom: 0;
   background: rgba(black, 0.75);
+  z-index: 2000;
 
   .loader {
     transform: rotateZ(45deg);

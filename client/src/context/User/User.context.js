@@ -8,10 +8,12 @@ export const UserContextProvider = (props) => {
     user: {
       email: null,
       username: null,
-      monthlyIncome: 0,
-      monthlySpending: 0,
-      monthlySavings: 0,
-      infoAdded: false,
+      financialInfo: {
+        monthlyIncome: 0,
+        monthlySpending: 0,
+        monthlySavings: 0,
+      },
+      financialInfoAdded: false,
     },
     bank: {
       state: {
@@ -26,13 +28,33 @@ export const UserContextProvider = (props) => {
   const [userState, setUserState] = useState(defaultUserState);
 
   // Update User Info
-  const updateUser = (email, username) =>
+  const updateUser = (email, username, financialInfo) =>
     setUserState((prevState) => ({
       ...prevState,
       user: {
         ...prevState.user,
         email,
         username,
+        financialInfo: {
+          ...prevState.user.financialInfo,
+          ...financialInfo,
+        },
+        financialInfoAdded:
+          financialInfo && Object.keys(financialInfo).length > 0 ? true : false,
+      },
+    }));
+
+  // Update Financial Info
+  const updateFinancialInfo = (financialInfo) =>
+    setUserState((prevState) => ({
+      ...prevState,
+      user: {
+        ...prevState.user,
+        financialInfo: {
+          ...prevState.user.financialInfo,
+          ...financialInfo,
+        },
+        financialInfoAdded: true,
       },
     }));
 
@@ -68,7 +90,7 @@ export const UserContextProvider = (props) => {
     <UserContext.Provider
       value={{
         userState,
-        userFunctions: { updateUser },
+        userFunctions: { updateUser, updateFinancialInfo },
         bankFunctions: { finishBankLogin, setToStepTwo },
         resetUserContext,
       }}

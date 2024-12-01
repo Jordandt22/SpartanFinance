@@ -1,0 +1,95 @@
+// Forms Styles
+
+// User Info Form
+.user-info-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(black, 0.25);
+  z-index: 1000;
+}
+
+.user-info-form {
+  background: white;
+  border-radius: 5px;
+  padding: $spacer-small * 1.75;
+  box-shadow: 0 0 5px 1px rgba(black, 0.25);
+
+  &__title {
+    color: $primary;
+    font-size: $main-fs;
+    margin-bottom: $spacer-small * 1.5;
+  }
+
+  &__input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacer-small * 1.5;
+  }
+
+  &__label {
+    font-weight: bold;
+    margin-bottom: $spacer-small * 0.5;
+  }
+
+  input {
+    outline: none;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: $spacer-small * 0.55 $spacer-small * 0.75;
+  }
+
+  .valid-input {
+    input {
+      border-color: $green;
+    }
+  }
+
+  .error-input {
+    input {
+      border-color: $red;
+    }
+  }
+
+  &__error {
+    background: rgba($red, 0.25);
+    color: $red;
+    font-weight: bold;
+    padding: $spacer-small * 0.25 $spacer-small * 0.5;
+    margin-top: $spacer-small * 0.5;
+    border-radius: 5px;
+    font-size: $main-fs * 0.5;
+    line-height: $spacer-small;
+  }
+
+  button {
+    outline: none;
+    border: none;
+    border: 2px solid $primary;
+    background: $primary;
+    color: white;
+    font-weight: bold;
+    padding: $spacer-small * 0.35 $spacer * 1.5;
+    border-radius: 25px;
+    transition: all 200ms ease-out;
+
+    &:hover {
+      background: $dark-primary;
+      border-color: $dark-primary;
+    }
+  }
+
+  &__cancel {
+    margin-left: $spacer-small;
+    background: transparent !important;
+    border: 2px solid $red !important;
+    color: $red !important;
+
+    &:hover {
+      background: $red !important;
+      color: white !important;
+    }
+  }
+}
