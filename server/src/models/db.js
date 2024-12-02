@@ -13,6 +13,17 @@ connect
     console.log("Database cannot be connected.", error);
   });
 
+// Spending Limit Schemas
+const bankAccountSpendingLimitSchema = new mongoose.Schema({
+  bankAccountID: String,
+  limit: Number,
+});
+
+const bankCardSpendingLimitSchema = new mongoose.Schema({
+  bankCardID: String,
+  limit: Number,
+});
+
 // User Schema
 const UserSchema = new mongoose.Schema({
   email: {
@@ -31,6 +42,10 @@ const UserSchema = new mongoose.Schema({
     monthlyIncome: Number,
     monthlySpending: Number,
     monthlySavings: Number,
+  },
+  spendingLimits: {
+    accounts: [bankAccountSpendingLimitSchema],
+    cards: [bankCardSpendingLimitSchema],
   },
 });
 

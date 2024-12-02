@@ -45,8 +45,36 @@ const BankConnectionSchema = Yup.object().shape({
     .required("Please enter your password."),
 });
 
+const BASpendingLimitSchema = Yup.object({
+  bankAccountID: Yup.string()
+    .min(1, "A Bank Account ID is required.")
+    .max(1000, "Bank Account ID exceeds max character limit (1000).")
+    .required("A Bank Account ID is required."),
+  limit: Yup.number()
+    .min(1, "A spending limit is required.")
+    .max(1000 * 1000, "The max value is 1 million.")
+    .required("A spending limit is required."),
+});
+
+const BCSpendingLimitSchema = Yup.object({
+  bankCardID: Yup.string()
+    .min(1, "A Bank Account ID is required.")
+    .max(1000, "Bank Account ID exceeds max character limit (1000).")
+    .required("A Bank Account ID is required."),
+  limit: Yup.number()
+    .min(1, "A spending limit is required.")
+    .max(1000 * 1000, "The max value is 1 million.")
+    .required("A spending limit is required."),
+});
+
 module.exports = {
-  schemas: { UserSchema, UserFinancalInfoSchema, BankConnectionSchema },
+  schemas: {
+    UserSchema,
+    UserFinancalInfoSchema,
+    BankConnectionSchema,
+    BASpendingLimitSchema,
+    BCSpendingLimitSchema,
+  },
   bodyValidator: (schema) => async (req, res, next) => {
     try {
       await schema.validate({

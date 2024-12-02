@@ -46,4 +46,60 @@ module.exports = {
         .json({ user: null, error: "There was an error on the server." });
     }
   },
+  addBankAccountSpendingLimit: async (req, res, next) => {
+    const { bankAccountID, limit } = req.body;
+    const { uid, spendingLimits } = req.user;
+
+    try {
+      // Add Bank ID to User Data
+      const updatedUser = await UserModel.findOneAndUpdate(
+        { uid },
+        {
+          spendingLimits: {
+            ...spendingLimits,
+            accounts: [...spendingLimits.accounts, { limit, bankAccountID }],
+          },
+        },
+        { returnDocument: "after" }
+      );
+
+      return res.status(200).json({
+        user: { ...updatedUser._doc },
+        error: null,
+      });
+    } catch (err) {
+      console.log(err);
+      return res
+        .status(500)
+        .json({ user: null, error: "There was an error on the server." });
+    }
+  },
+  addBankCardSpendingLimit: async (req, res, next) => {
+    const { bankCardID, limit } = req.body;
+    const { uid, spendingLimits } = req.user;
+
+    try {
+      // Add Bank ID to User Data
+      const updatedUser = await UserModel.findOneAndUpdate(
+        { uid },
+        {
+          spendingLimits: {
+            ...spendingLimits,
+            cards: [...spendingLimits.cards, { limit, bankCardID }],
+          },
+        },
+        { returnDocument: "after" }
+      );
+
+      return res.status(200).json({
+        user: { ...updatedUser._doc },
+        error: null,
+      });
+    } catch (err) {
+      console.log(err);
+      return res
+        .status(500)
+        .json({ user: null, error: "There was an error on the server." });
+    }
+  },
 };
