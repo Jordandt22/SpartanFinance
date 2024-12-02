@@ -842,6 +842,11 @@ html {
 .bank-account__title {
   text-transform: capitalize;
   font-size: 1.2rem;
+  transition: all 200ms ease-out;
+}
+.bank-account__title:hover {
+  cursor: pointer;
+  color: #6262ff;
 }
 .bank-account__id {
   color: rgba(128, 128, 128, 0.5);
@@ -926,6 +931,24 @@ html {
 .financial-info__amount {
   color: #6262ff;
   font-size: 1.875rem;
+}
+
+.bank-accounts-container {
+  margin-left: 17.5%;
+  padding: 4rem;
+  padding-top: 5rem;
+}
+.bank-accounts-container__title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.bank-accounts {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bank-accounts .bank-account {
+  margin-bottom: 2rem;
 }
 
 .App,

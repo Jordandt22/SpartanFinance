@@ -2,7 +2,7 @@ import React from "react";
 
 // Components
 import UserInfo from "./UserInfo";
-import BankAccounts from "./BankAccount";
+import BankAccounts from "./BankAccounts";
 import BankCards from "./BankCards";
 
 function Dashboard() {

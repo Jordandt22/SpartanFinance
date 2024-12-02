@@ -13,6 +13,8 @@ import Login from "./components/pages/Login/Login";
 import LoadingSpinner from "./components/standalone/UI/LoadingSpinner";
 import Sidebar from "./components/standalone/Navbar/Sidebar";
 import UserInfoForm from "./components/standalone/Forms/UserInfoForm";
+import BankAccounts from "./components/pages/BankAccounts/BankAccounts";
+import BankCards from "./components/pages/BankCards/BankCards";
 
 function App() {
   const {
@@ -37,6 +39,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+
+        {/* Bank Pages */}
+        <Route path="/accounts" element={<BankAccounts />} />
+        <Route path="/cards" element={<BankCards />} />
 
         {/* Not Found */}
         {/* <Route path="*" element={<NotFound />} /> */}
