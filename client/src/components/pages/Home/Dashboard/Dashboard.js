@@ -7,7 +7,7 @@ import BankCards from "./BankCards";
 
 function Dashboard() {
   return (
-    <div className="dashboard">
+    <div className="dashboard container">
       {/* User Info */}
       <UserInfo />
       {/* Bank Accouns Info */}

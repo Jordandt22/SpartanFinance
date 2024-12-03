@@ -12,6 +12,7 @@
 // Pages
 @import "./pages/home/home";
 @import "./pages/bank-accounts/bank-accounts";
+@import "./pages/bank-account/bank-account";
 
 .App,
 body {
@@ -21,6 +22,16 @@ body {
 
 button {
   cursor: pointer !important;
+}
+
+.container {
+  margin-left: 17.5%;
+  padding: $spacer-md;
+  padding-top: $spacer-md * 1.25;
+}
+
+.top-padding {
+  padding-top: $spacer-md;
 }
 
 // Loading Spinner
@@ -119,10 +130,6 @@ button {
 // Not Found Page Styles
 .not-found-container,
 .unavailable-container {
-  margin-left: 17.5%;
-  padding: $spacer-md;
-  padding-top: $spacer-md * 1.25;
-
   &__title {
     font-size: $lg-fs * 2;
     color: $dark-primary;

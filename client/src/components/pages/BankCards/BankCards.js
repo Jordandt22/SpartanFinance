@@ -12,7 +12,7 @@ function BankCards() {
   } = useBank();
 
   return (
-    <div className="bank-accounts-container">
+    <div className="bank-accounts-container container">
       <h1 className="bank-accounts-container__title">My Bank Cards</h1>
       <div className="bank-accounts">
         {cards.map((acc) => {

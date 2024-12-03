@@ -18,5 +18,11 @@ export default function BankAccount() {
     return <NotFound />;
   }
 
-  return <div>BankAccount</div>;
+  const { type } = bankAccount;
+  return (
+    <div className="BA-container container">
+      <h1 className="BA-container__title">{type.toLowerCase()} Account</h1>
+      <h2 className="BA-container__sub-title">ID: </h2>
+    </div>
+  );
 }

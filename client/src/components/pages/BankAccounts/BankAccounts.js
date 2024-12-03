@@ -12,7 +12,7 @@ function BankAccounts() {
   } = useBank();
 
   return (
-    <div className="bank-accounts-container">
+    <div className="bank-accounts-container container">
       <h1 className="bank-accounts-container__title">My Bank Accounts</h1>
       <div className="bank-accounts">
         {accounts.map((acc) => {
