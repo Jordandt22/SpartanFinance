@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 // Contexts
 import { useGlobal } from "./context/Global/Global.context";
@@ -15,12 +15,16 @@ import Sidebar from "./components/standalone/Navbar/Sidebar";
 import UserInfoForm from "./components/standalone/Forms/UserInfoForm";
 import BankAccounts from "./components/pages/BankAccounts/BankAccounts";
 import BankCards from "./components/pages/BankCards/BankCards";
+import BankAccount from "./components/pages/BankAccount/BankAccount";
+import NotFound from "./components/pages/NotFound/NotFound";
+import Unavailable from "./components/pages/Unavailable/Unavailable";
 
 function App() {
   const {
     state: { loading },
     UI: { showUserInfoForm },
   } = useGlobal();
+  const { pathname } = useLocation();
   const { authState } = useAuth();
   const {
     userState: {
@@ -29,6 +33,10 @@ function App() {
       },
     },
   } = useUser();
+
+  useEffect(() => {
+    localStorage.setItem("LAST_PAGE", pathname);
+  }, [pathname]);
 
   return (
     <div className="App">
@@ -42,10 +50,16 @@ function App() {
 
         {/* Bank Pages */}
         <Route path="/accounts" element={<BankAccounts />} />
+        <Route path="/account/:accountID" element={<BankAccount />} />
         <Route path="/cards" element={<BankCards />} />
 
+        {/* Unavailable Pages */}
+        <Route path="/investments" element={<Unavailable />} />
+        <Route path="/help" element={<Unavailable />} />
+        <Route path="/settings" element={<Unavailable />} />
+
         {/* Not Found */}
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {/* User Info Form */}

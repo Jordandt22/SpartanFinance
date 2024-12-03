@@ -1044,4 +1044,51 @@ button {
   margin-top: 1rem;
   font-weight: bold;
   font-size: 1.125rem;
+}
+
+.not-found-container,
+.unavailable-container {
+  margin-left: 17.5%;
+  padding: 4rem;
+  padding-top: 5rem;
+}
+.not-found-container__title,
+.unavailable-container__title {
+  font-size: 6.75rem;
+  color: #3b3bff;
+  text-align: center;
+}
+.not-found-container__title span,
+.unavailable-container__title span {
+  color: #9d9dff;
+}
+.not-found-container__message,
+.unavailable-container__message {
+  color: #808080;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+.not-found-container__link,
+.unavailable-container__link {
+  width: fit-content;
+  display: block;
+  text-decoration: none;
+  background: #6262ff;
+  color: white;
+  padding: 0.35rem 4rem;
+  border-radius: 25px;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  transition: all 200ms ease-out;
+}
+.not-found-container__link:hover,
+.unavailable-container__link:hover {
+  transform: scale(0.95);
+  background: #3b3bff;
+}
+
+.unavailable-container__title {
+  font-size: 3.375rem;
 }/*# sourceMappingURL=main.css.map */

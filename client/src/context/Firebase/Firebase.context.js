@@ -111,7 +111,7 @@ export const FirebaseContextProvider = (props) => {
           }
 
           // Auth Finished
-          navigate("/");
+          navigate(localStorage.getItem("LAST_PAGE"));
         });
       }
 

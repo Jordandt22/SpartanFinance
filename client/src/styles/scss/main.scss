@@ -13,7 +13,6 @@
 @import "./pages/home/home";
 @import "./pages/bank-accounts/bank-accounts";
 
-
 .App,
 body {
   font-family: $font;
@@ -115,4 +114,52 @@ button {
     font-weight: bold;
     font-size: $main-fs * 0.75;
   }
+}
+
+// Not Found Page Styles
+.not-found-container,
+.unavailable-container {
+  margin-left: 17.5%;
+  padding: $spacer-md;
+  padding-top: $spacer-md * 1.25;
+
+  &__title {
+    font-size: $lg-fs * 2;
+    color: $dark-primary;
+    text-align: center;
+
+    span {
+      color: $light-primary;
+    }
+  }
+
+  &__message {
+    color: #808080;
+    text-align: center;
+    font-size: $main-fs;
+    margin-top: $spacer-small * 1.5;
+  }
+
+  &__link {
+    width: fit-content;
+    display: block;
+    text-decoration: none;
+    background: $primary;
+    color: white;
+    padding: $spacer-small * 0.35 $spacer-md;
+    border-radius: 25px;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: $spacer * 1.25;
+    transition: all 200ms ease-out;
+
+    &:hover {
+      transform: scale(0.95);
+      background: $dark-primary;
+    }
+  }
+}
+
+.unavailable-container__title {
+  font-size: $lg-fs;
 }
