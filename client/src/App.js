@@ -18,6 +18,7 @@ import BankCards from "./components/pages/BankCards/BankCards";
 import BankAccount from "./components/pages/BankAccount/BankAccount";
 import NotFound from "./components/pages/NotFound/NotFound";
 import Unavailable from "./components/pages/Unavailable/Unavailable";
+import BankCard from "./components/pages/BankCard/BankCard";
 
 function App() {
   const {
@@ -52,6 +53,7 @@ function App() {
         <Route path="/accounts" element={<BankAccounts />} />
         <Route path="/account/:accountID" element={<BankAccount />} />
         <Route path="/cards" element={<BankCards />} />
+        <Route path="/card/:cardID" element={<BankCard />} />
 
         {/* Unavailable Pages */}
         <Route path="/investments" element={<Unavailable />} />

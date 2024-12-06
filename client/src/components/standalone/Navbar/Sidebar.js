@@ -9,7 +9,6 @@ import Plus from "../../svg/Plus";
 import HomeIcon from "../../svg/icons/HomeIcon";
 import BankIcon from "../../svg/icons/BankIcon";
 import CreditCardIcon from "../../svg/icons/CreditCardIcon";
-import PieChartIcon from "../../svg/icons/PieChartIcon";
 import GraphIcon from "../../svg/icons/GraphIcon";
 import RobotIcon from "../../svg/icons/RobotIcon";
 import Settings from "../../svg/icons/Settings";
@@ -35,12 +34,6 @@ function Sidebar() {
       path: "/cards",
       icon: <CreditCardIcon />,
       fill: false,
-    },
-    {
-      label: "Track My Spending",
-      path: "/spending",
-      icon: <PieChartIcon />,
-      fill: true,
     },
     {
       label: "Investment Suggestions",

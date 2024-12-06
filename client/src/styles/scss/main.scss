@@ -22,6 +22,10 @@ body {
 
 button {
   cursor: pointer !important;
+
+  &:hover {
+    cursor: pointer !important;
+  }
 }
 
 .container {

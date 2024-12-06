@@ -14,20 +14,26 @@ function BankAccounts() {
   return (
     <div className="bank-accounts-container container">
       <h1 className="bank-accounts-container__title">My Bank Accounts</h1>
-      <div className="bank-accounts">
-        {accounts.map((acc) => {
-          const { currentBalance, type, _id: id } = acc;
+      {accounts.length > 0 ? (
+        <div className="bank-accounts">
+          {accounts.map((acc) => {
+            const { currentBalance, type, _id: id } = acc;
 
-          return (
-            <BankAccountInfo
-              key={id}
-              currentBalance={currentBalance}
-              type={type}
-              id={id}
-            />
-          );
-        })}
-      </div>
+            return (
+              <BankAccountInfo
+                key={id}
+                currentBalance={currentBalance}
+                type={type}
+                id={id}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <p className="bank-accounts-container__message">
+          You don't have any accounts with this bank.
+        </p>
+      )}
     </div>
   );
 }

@@ -2,6 +2,143 @@
 .BA-container {
   &__title {
     text-transform: capitalize;
-    font-size: $main-fs * 1.25;
+    font-size: $main-fs * 1.5;
+  }
+
+  &__sub-title {
+    color: rgba(#808080, 0.75);
+    margin-top: $spacer-small;
+    font-weight: 400;
+    margin-bottom: $spacer;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: $main-fs * 0.6;
+    background: $orange;
+    padding: $spacer-small * 0.25 $spacer;
+    border-radius: 25px;
+    transition: all 200ms ease-out;
+
+    svg {
+      margin-right: $spacer-small * 0.25;
+      transform: scale(0.9);
+
+      path {
+        fill: white;
+      }
+    }
+
+    &:hover {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+  }
+
+  .row {
+    align-items: flex-start;
+  }
+
+  &__box {
+    width: fit-content;
+    background: white;
+    padding: $spacer-small * 1.5 $spacer;
+    padding-right: $spacer-lg;
+    border: 1px dashed #c2c2c2;
+    border-radius: 10px;
+    margin-right: $spacer;
+  }
+
+  &__label {
+    font-weight: bold;
+    margin-bottom: $spacer-small * 1.25;
+  }
+
+  &__balance {
+    color: $primary;
+    font-size: $md-fs * 1.5;
+  }
+
+  &__message {
+    color: #808080;
+    margin-bottom: $spacer-small;
+    font-size: $main-fs * 0.75;
+  }
+
+  &__btn {
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    background: $primary;
+    color: white;
+    padding: $spacer-small * 0.35 $spacer-md;
+    font-weight: bold;
+    transition: all 200ms ease-out;
+
+    svg {
+      margin-right: $spacer-small * 0.25;
+
+      path {
+        stroke: white;
+      }
+    }
+
+    &:hover {
+      background: $dark-primary;
+    }
+  }
+}
+
+.BA-transactions {
+  margin-top: $spacer * 1.5;
+
+  &__title {
+    font-size: $main-fs * 0.9;
+    margin-bottom: $spacer-small * 1.25;
+  }
+
+  &__box {
+    border: 1px solid rgba(#808080, 0.25);
+    border-radius: 5px;
+    padding: $spacer-small * 0.75;
+    margin-bottom: $spacer-small;
+  }
+
+  &__name {
+    margin-bottom: $spacer-small * 0.35;
+    font-weight: bold;
+
+    span {
+      font-weight: normal;
+    }
+  }
+
+  &__date {
+    color: #808080;
+  }
+
+  &__amount {
+    color: #808080;
+    font-weight: bold;
+  }
+
+  .negative {
+    color: $red;
+  }
+
+  .positive {
+    color: $green;
+  }
+}
+
+.BC-container {
+  &__box {
+    padding-right: $spacer;
+  }
+
+  &__balance {
+    font-size: $md-fs * 1.15;
   }
 }

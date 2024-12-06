@@ -4,6 +4,11 @@
     font-size: $main-fs;
     margin-bottom: $spacer;
   }
+
+  &__message {
+    color: #808080;
+    font-size: $main-fs * 0.75;
+  }
 }
 
 .bank-accounts {

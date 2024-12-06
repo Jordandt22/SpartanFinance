@@ -931,6 +931,10 @@ html {
   font-size: 1.5rem;
   margin-bottom: 2rem;
 }
+.bank-accounts-container__message {
+  color: #808080;
+  font-size: 1.125rem;
+}
 
 .bank-accounts {
   display: flex;
@@ -942,7 +946,119 @@ html {
 
 .BA-container__title {
   text-transform: capitalize;
-  font-size: 1.875rem;
+  font-size: 2.25rem;
+}
+.BA-container__sub-title {
+  color: rgba(128, 128, 128, 0.75);
+  margin-top: 1rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+.BA-container__link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background: #ffa851;
+  padding: 0.25rem 2rem;
+  border-radius: 25px;
+  transition: all 200ms ease-out;
+}
+.BA-container__link svg {
+  margin-right: 0.25rem;
+  transform: scale(0.9);
+}
+.BA-container__link svg path {
+  fill: white;
+}
+.BA-container__link:hover {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+.BA-container .row {
+  align-items: flex-start;
+}
+.BA-container__box {
+  width: fit-content;
+  background: white;
+  padding: 1.5rem 2rem;
+  padding-right: 8rem;
+  border: 1px dashed #c2c2c2;
+  border-radius: 10px;
+  margin-right: 2rem;
+}
+.BA-container__label {
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+}
+.BA-container__balance {
+  color: #6262ff;
+  font-size: 3.375rem;
+}
+.BA-container__message {
+  color: #808080;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+.BA-container__btn {
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  background: #6262ff;
+  color: white;
+  padding: 0.35rem 4rem;
+  font-weight: bold;
+  transition: all 200ms ease-out;
+}
+.BA-container__btn svg {
+  margin-right: 0.25rem;
+}
+.BA-container__btn svg path {
+  stroke: white;
+}
+.BA-container__btn:hover {
+  background: #3b3bff;
+}
+
+.BA-transactions {
+  margin-top: 3rem;
+}
+.BA-transactions__title {
+  font-size: 1.35rem;
+  margin-bottom: 1.25rem;
+}
+.BA-transactions__box {
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  border-radius: 5px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+.BA-transactions__name {
+  margin-bottom: 0.35rem;
+  font-weight: bold;
+}
+.BA-transactions__name span {
+  font-weight: normal;
+}
+.BA-transactions__date {
+  color: #808080;
+}
+.BA-transactions__amount {
+  color: #808080;
+  font-weight: bold;
+}
+.BA-transactions .negative {
+  color: #ff4d4d;
+}
+.BA-transactions .positive {
+  color: #5bd75b;
+}
+
+.BC-container__box {
+  padding-right: 2rem;
+}
+.BC-container__balance {
+  font-size: 2.5875rem;
 }
 
 .App,
@@ -952,6 +1068,9 @@ body {
 }
 
 button {
+  cursor: pointer !important;
+}
+button:hover {
   cursor: pointer !important;
 }
 

@@ -9,35 +9,43 @@ import { currencyFormater } from "../../../util/util";
 import { useBank } from "../../../context/User/Bank.context";
 
 // SVGs
-import Plus from "../../svg/Plus";
 import PieChartIcon from "../../svg/icons/PieChartIcon";
+import Plus from "../../svg/Plus";
 
 // Components
 import NotFound from "../NotFound/NotFound";
 
-export default function BankAccount() {
-  const { accountID } = useParams();
+export default function BankCard() {
+  const { cardID } = useParams();
   const {
-    bankData: { accounts },
+    bankData: { cards },
   } = useBank();
-  const bankAccount = accounts.find((acc) => acc._id === accountID);
+  const bankCard = cards.find((acc) => acc._id === cardID);
 
-  if (!bankAccount) {
+  if (!bankCard) {
     return <NotFound />;
   }
 
-  const { currentBalance, type, _id: id, transactions } = bankAccount;
+  const { currentBalance, cardLimit, type, _id: id, transactions } = bankCard;
+  const percentageUsed = (currentBalance / cardLimit) * 100;
+  let percentageLevel = "green";
+  if (percentageUsed >= 80) {
+    percentageLevel = "red";
+  } else if (percentageUsed >= 50) {
+    percentageLevel = "yellow";
+  }
+
   return (
-    <div className="BA-container container">
+    <div className="BA-container BC-container container">
       {/* Title */}
       <header className="between-row">
         <div>
-          <h1 className="BA-container__title">{type.toLowerCase()} Account</h1>
+          <h1 className="BA-container__title">{type.toLowerCase()} Card</h1>
           <h2 className="BA-container__sub-title">ID: {id}</h2>
         </div>
         <NavLink
           className="BA-container__link center"
-          to={`/spending/account/${id}`}
+          to={`/spending/card/${id}`}
         >
           <PieChartIcon /> Track Spending
         </NavLink>
@@ -45,11 +53,20 @@ export default function BankAccount() {
 
       {/* Current Balance & Spending Limits */}
       <div className="row">
-        <div className="BA-container__box">
+        <div
+          className={`BA-container__box BC-container__box bank-card__pl-${percentageLevel}`}
+        >
           <p className="BA-container__label">Current Balance:</p>
-          <p className="BA-container__balance">
-            {currencyFormater(currentBalance)}
+          <p className="BA-container__balance BC-container__balance">
+            {currencyFormater(currentBalance)} / {currencyFormater(cardLimit)}
           </p>
+          <div className="bank-card__progress">
+            <div
+              className="bank-card__progress-amount"
+              style={{ width: `${percentageUsed}%` }}
+            ></div>
+          </div>
+          <p className="bank-card__spent">{percentageUsed.toFixed(2)}% Used</p>
         </div>
         <div className="BA-container__box">
           <p className="BA-container__message">No Active Spending Limit</p>
