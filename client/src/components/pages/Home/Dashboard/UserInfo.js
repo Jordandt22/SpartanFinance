@@ -21,14 +21,6 @@ function UserInfo() {
       {/* Header */}
       <header className="user-info__header row">
         <h1 className="user-info__title">Income & Spending Information</h1>
-        <NavLink
-          className={`user-info__link ${
-            !financialInfoAdded ? "disabled-link" : ""
-          }`}
-          to={!financialInfoAdded ? "/" : "/spending"}
-        >
-          Track Spending
-        </NavLink>
         <button
           type="button"
           className="user-info__update"

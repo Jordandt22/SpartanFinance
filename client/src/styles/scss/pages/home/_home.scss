@@ -49,7 +49,6 @@
   border-color: $orange;
   color: $orange;
   background: transparent;
-  margin-left: $spacer-small;
 
   &:hover {
     background: $orange;
@@ -62,6 +61,15 @@
   margin-bottom: $spacer-small * 1.5;
 }
 
+.ba-info {
+  margin-top: $spacer-md;
+}
+
+.ba-info__message {
+  color: #808080;
+  margin-top: $spacer-small * 0.5;
+}
+
 .bank-account {
   width: 30vw;
   background: white;
@@ -69,7 +77,6 @@
   padding: $spacer-small * 1.5;
   box-shadow: 0 0 4px 0 rgba(black, 0.25);
   margin-right: $spacer;
-  margin-bottom: $spacer-md * 1.25;
 
   &__header {
     margin-bottom: $spacer-small * 0.65;

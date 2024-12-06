@@ -21,19 +21,27 @@ function BankCards() {
       </header>
       {/* Bank Accounts */}
       <div className="row">
-        {bankData.cards.slice(0, 2).map((card) => {
-          const { currentBalance, cardLimit, type, _id: id } = card;
+        {bankData.cards.length > 0 ? (
+          <>
+            {bankData.cards.slice(0, 2).map((card) => {
+              const { currentBalance, cardLimit, type, _id: id } = card;
 
-          return (
-            <BankCardInfo
-              key={id}
-              currentBalance={currentBalance}
-              cardLimit={cardLimit}
-              type={type}
-              id={id}
-            />
-          );
-        })}
+              return (
+                <BankCardInfo
+                  key={id}
+                  currentBalance={currentBalance}
+                  cardLimit={cardLimit}
+                  type={type}
+                  id={id}
+                />
+              );
+            })}
+          </>
+        ) : (
+          <p className="ba-info__message">
+            You don't have any cards with this bank.
+          </p>
+        )}
       </div>
     </div>
   );

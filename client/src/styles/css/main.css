@@ -810,7 +810,6 @@ html {
   border-color: #ffa851;
   color: #ffa851;
   background: transparent;
-  margin-left: 1rem;
 }
 .user-info__update:hover {
   background: #ffa851;
@@ -821,6 +820,15 @@ html {
   margin-bottom: 1.5rem;
 }
 
+.ba-info {
+  margin-top: 4rem;
+}
+
+.ba-info__message {
+  color: #808080;
+  margin-top: 0.5rem;
+}
+
 .bank-account {
   width: 30vw;
   background: white;
@@ -828,7 +836,6 @@ html {
   padding: 1.5rem;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
   margin-right: 2rem;
-  margin-bottom: 5rem;
 }
 .bank-account__header {
   margin-bottom: 0.65rem;
