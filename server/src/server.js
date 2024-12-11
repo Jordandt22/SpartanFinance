@@ -68,6 +68,9 @@ app.use(
   require("./routes/bank/bank.rt")
 );
 
+// AI
+// app.use(`/v${process.env.API_VERSION}/api/AI`, require("./routes/AI/AI.rt"));
+
 // PORT and Sever
 const PORT = process.env.PORT || 4000;
 const server = http.createServer(app);
