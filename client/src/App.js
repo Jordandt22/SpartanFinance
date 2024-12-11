@@ -22,6 +22,8 @@ import BankCard from "./components/pages/BankCard/BankCard";
 import SpendingLimitForm from "./components/standalone/Forms/SpendingLimitForm";
 import AIHelper from "./components/pages/AIHelper/AIHelper";
 import TrackSpending from "./components/pages/TrackSpending/Spending";
+import Settings from "./components/pages/Settings/Settings";
+import EditSettingsForm from "./components/pages/EditSettings/EditSettingsForm";
 
 function App() {
   const {
@@ -52,6 +54,10 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
 
+        {/* User Pages */}
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/edit" element={<EditSettingsForm />} />
+
         {/* Bank Pages */}
         <Route path="/accounts" element={<BankAccounts />} />
         <Route path="/account/:accountID" element={<BankAccount />} />
@@ -64,8 +70,6 @@ function App() {
 
         {/* Unavailable Pages */}
         <Route path="/investments" element={<Unavailable />} />
-        <Route path="/help" element={<Unavailable />} />
-        <Route path="/settings" element={<Unavailable />} />
 
         {/* Not Found */}
         <Route path="*" element={<NotFound />} />

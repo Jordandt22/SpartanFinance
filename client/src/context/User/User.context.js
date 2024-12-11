@@ -45,6 +45,16 @@ export const UserContextProvider = (props) => {
       },
     }));
 
+  // Update User Info
+  const updateUserInfo = (userInfo) =>
+    setUserState((prevState) => ({
+      ...prevState,
+      user: {
+        ...prevState.user,
+        ...userInfo,
+      },
+    }));
+
   // Update Financial Info
   const updateFinancialInfo = (financialInfo) =>
     setUserState((prevState) => ({
@@ -108,6 +118,7 @@ export const UserContextProvider = (props) => {
           updateUser,
           updateFinancialInfo,
           updateSpendingLimits,
+          updateUserInfo,
         },
         bankFunctions: { finishBankLogin, setToStepTwo },
         resetUserContext,

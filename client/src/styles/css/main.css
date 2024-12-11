@@ -1104,6 +1104,34 @@ html {
   font-size: 2.5875rem;
 }
 
+.settings-container__title {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+}
+.settings-container__info {
+  width: 30%;
+  margin-bottom: 1rem;
+  background: #ededed;
+  padding: 0.65rem;
+  border-radius: 5px;
+}
+.settings-container__link {
+  display: block;
+  width: fit-content;
+  margin-top: 2rem;
+  border: 2px solid #6262ff;
+  border-radius: 25px;
+  padding: 0.5rem 4rem;
+  text-decoration: none;
+  color: #6262ff;
+  transition: all 200ms ease-out;
+}
+.settings-container__link:hover {
+  background: #6262ff;
+  color: white;
+  font-weight: bold;
+}
+
 .App,
 body {
   font-family: "Inria Sans", sans-serif;

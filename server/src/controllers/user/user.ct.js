@@ -77,14 +77,14 @@ module.exports = {
       res.status(500).json({ error: "Internal server error" });
     }
   },
-  updateUsername: async (req, res, next) => {
-    const { newUsername } = req.body;
+  updateUserInfo: async (req, res, next) => {
+    const { username } = req.body;
     try {
       const { uid } = req.user;
       const updatedUser = await UserModel.findOneAndUpdate(
         { uid },
         {
-          username: newUsername,
+          username,
         },
         { returnDocument: "after" }
       );

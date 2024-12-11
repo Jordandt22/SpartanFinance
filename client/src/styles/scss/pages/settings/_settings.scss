@@ -1,0 +1,33 @@
+// Settings Page Styles
+.settings-container {
+  &__title {
+    font-size: $md-fs;
+    margin-bottom: $spacer;
+  }
+
+  &__info {
+    width: 30%;
+    margin-bottom: $spacer-small;
+    background: #ededed;
+    padding: $spacer-small * 0.65;
+    border-radius: 5px;
+  }
+
+  &__link {
+    display: block;
+    width: fit-content;
+    margin-top: $spacer;
+    border: 2px solid $primary;
+    border-radius: 25px;
+    padding: $spacer-small * 0.5 $spacer-md;
+    text-decoration: none;
+    color: $primary;
+    transition: all 200ms ease-out;
+
+    &:hover {
+      background: $primary;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}

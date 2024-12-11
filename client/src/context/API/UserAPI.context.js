@@ -35,6 +35,12 @@ export const UserAPIContextProvider = (props) => {
       .then((res) => cb(res.data, null))
       .catch((err) => cb(null, err));
 
+  // PATCH: Update Username & Email
+  const updateUserInfo = (uid, accessToken, userData, cb) =>
+    Axios.patch(getUserAPIURI(uid, "info"), userData, config(accessToken))
+      .then((res) => cb(null))
+      .catch((err) => cb(err));
+
   return (
     <UserAPIContext.Provider
       value={{
@@ -42,6 +48,7 @@ export const UserAPIContextProvider = (props) => {
           createUser,
           getUser,
           updateUserFinancialInfo,
+          updateUserInfo,
         },
       }}
     >

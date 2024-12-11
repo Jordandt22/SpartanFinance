@@ -21,6 +21,7 @@ module.exports = {
       });
 
     req.uid = uid;
+    req.body = { ...req.body };
     return next();
   },
   checkIfUserExist: async (req, res, next) => {
@@ -34,6 +35,7 @@ module.exports = {
       return res.status(404).json({ user: null, error: "User not found" });
 
     req.user = user;
+    req.body = { ...req.body };
     return next();
   },
 };
