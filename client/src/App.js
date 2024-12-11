@@ -24,6 +24,7 @@ import AIHelper from "./components/pages/AIHelper/AIHelper";
 import TrackSpending from "./components/pages/TrackSpending/Spending";
 import Settings from "./components/pages/Settings/Settings";
 import EditSettingsForm from "./components/pages/EditSettings/EditSettingsForm";
+import Investments from "./components/pages/Invest/Investments";
 
 function App() {
   const {
@@ -64,6 +65,8 @@ function App() {
         <Route path="/cards" element={<BankCards />} />
         <Route path="/card/:cardID" element={<BankCard />} />
         <Route path="/spending/:type/:ID" element={<TrackSpending />} />
+        <Route path="/investments" element={<Investments />} />
+
 
         {/* Helper */}
         <Route path="/help" element={<AIHelper />} />
