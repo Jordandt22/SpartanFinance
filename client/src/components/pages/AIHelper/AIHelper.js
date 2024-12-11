@@ -6,7 +6,7 @@ function AIHelper() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  const API_ENDPOINT = "http://localhost:3001/chat"; // Replace with your backend endpoint
+  const API_ENDPOINT = "http://localhost:4000/v1/api/AI/message"; // Replace with your backend endpoint
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -16,7 +16,7 @@ function AIHelper() {
 
     try {
       const response = await axios.post(API_ENDPOINT, { message: input });
-      const botReply = response.data.response;
+      const botReply = response.data.message;
       setMessages([...newMessages, { sender: "bot", text: botReply }]);
     } catch (error) {
       console.error("Error sending message:", error);
@@ -26,7 +26,7 @@ function AIHelper() {
   };
 
   return (
-    <div className={"container"}>
+    <div className="container">
       <div className="app">
         {/* Add a header for the title */}
         <header className="app-header">
