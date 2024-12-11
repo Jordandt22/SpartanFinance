@@ -1,0 +1,111 @@
+/* Overall App Styles */
+.app {
+  width: 100%;
+  max-width: 900px; /* Wider container */
+  height: 90vh; /* Taller container */
+  background-color: #ffffff; /* White chat area */
+  border-radius: 12px; /* Smooth edges for the entire container */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  overflow: hidden;
+  border: 2px solid #6262ff; /* Border with #6262ff color */
+}
+
+/* Header Styles */
+.app-header {
+  padding: 20px; /* Add padding for spacing */
+  background-color: #6262ff; /* Consistent theme color */
+  color: white; /* Text color */
+  text-align: center; /* Center the header text */
+  font-size: 24px; /* Larger font size for the header */
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow below header */
+}
+
+/* Chat Container */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Chat Display */
+.chat-display {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f7f7f8; /* Slightly different tone for display */
+  color: #444; /* Text color for readability */
+  font-size: 16px;
+}
+
+/* Chat Message Styles */
+.chat-message {
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 16px; /* Smoother edges for messages */
+  max-width: fit-content;
+  line-height: 1.5;
+}
+
+.chat-message.user {
+  background-color: #6262ff;
+  color: white;
+  margin-left: auto;
+  text-align: center; /* Align user text */
+}
+
+.chat-message.bot {
+  background-color: #e6e6ff; /* Light background for bot messages */
+  color: #333;
+  margin-right: auto;
+}
+
+/* Chat Input Styles */
+.chat-input {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  gap: 15px; /* Space between input and button */
+}
+
+.chat-input input {
+  flex: 2; /* Take up more space for a wider input box */
+  padding: 18px 20px;
+  border-radius: 12px; /* Smooth edges for the input box */
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9; /* Slightly off-white for elegance */
+  transition: all 0.3s ease; /* Smooth transition for focus */
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: #6262ff; /* Consistent theme color */
+  box-shadow: 0 0 5px rgba(98, 98, 255, 0.5); /* Soft glow effect */
+  background-color: #ffffff; /* Slight brightness on focus */
+}
+
+.chat-input button {
+  flex: 0.5; /* Smaller button compared to input box */
+  padding: 15px 25px;
+  background-color: #6262ff;
+  color: white;
+  border: none;
+  border-radius: 20px; /* Smooth edges for button */
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold; /* Slightly bolder text for emphasis */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Button shadow for elevation */
+}
+
+.chat-input button:hover {
+  background-color: #5050d4; /* Slightly darker hover effect */
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
