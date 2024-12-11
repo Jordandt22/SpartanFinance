@@ -1,5 +1,9 @@
 // Bank Account Page Styles
 .BA-container {
+  header {
+    align-items: flex-start;
+  }
+
   &__title {
     text-transform: capitalize;
     font-size: $main-fs * 1.5;

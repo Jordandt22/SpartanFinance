@@ -74,14 +74,7 @@ function Sidebar() {
             <span className="center">
               <Plus />
             </span>
-            New Bank Account
-          </button>
-
-          <button type="button" className="row">
-            <span className="center">
-              <Plus />
-            </span>
-            New Bank Card
+            New Bank Connection
           </button>
         </div>
         <hr />
