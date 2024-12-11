@@ -4,6 +4,7 @@ const {
   getUser,
   deleteUser,
   updateFinancialInfo,
+  updateUsername,
 } = require("../../controllers/user/user.ct");
 const { authUser, checkIfUserExist } = require("../../middleware/auth.mw");
 const {
@@ -19,6 +20,9 @@ userRouter.get("/:uid", authUser, checkIfUserExist, getUser);
 
 // DELETE: Delete User
 userRouter.delete("/:uid", authUser, deleteUser);
+
+// PATCH: Update Username
+userRouter.patch("/:uid", authUser, checkIfUserExist, updateUsername);
 
 // ---- Financial Information ----
 

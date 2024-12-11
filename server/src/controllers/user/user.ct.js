@@ -77,6 +77,28 @@ module.exports = {
       res.status(500).json({ error: "Internal server error" });
     }
   },
+  updateUsername: async (req, res, next) => {
+    const { newUsername } = req.body;
+    try {
+      const { uid } = req.user;
+      const updatedUser = await UserModel.findOneAndUpdate(
+        { uid },
+        {
+          username: newUsername,
+        },
+        { returnDocument: "after" }
+      );
+
+      res.status(200).json({
+        user: { ...updatedUser._doc },
+        error: null,
+      });
+    } catch (error) {
+      // Error occurred while fetching user information
+      console.error("Error updating user's username:", error);
+      res.status(500).json({ user: null, error: "Internal server error" });
+    }
+  },
 
   // Financial Information
   updateFinancialInfo: async (req, res) => {
