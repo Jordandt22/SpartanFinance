@@ -30,7 +30,7 @@ function AIHelper() {
       <div className="app">
         {/* Add a header for the title */}
         <header className="app-header">
-          <h1>ChatSF</h1>
+          <h1>SpartanFinance.AI</h1>
         </header>
         <div className="chat-container">
           <div className="chat-display">

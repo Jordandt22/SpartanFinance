@@ -67,12 +67,8 @@ function App() {
         <Route path="/spending/:type/:ID" element={<TrackSpending />} />
         <Route path="/investments" element={<Investments />} />
 
-
         {/* Helper */}
         <Route path="/help" element={<AIHelper />} />
-
-        {/* Unavailable Pages */}
-        <Route path="/investments" element={<Unavailable />} />
 
         {/* Not Found */}
         <Route path="*" element={<NotFound />} />
