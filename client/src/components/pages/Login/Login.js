@@ -71,10 +71,10 @@ function Login() {
               // Change Auth State to Logged In
               authenticateUser(accessToken, uid);
 
-              const { username, financialInfo } = data?.user;
+              const { username, financialInfo, spendingLimits } = data?.user;
 
               // Update User Info in User Context
-              updateUser(email, username, financialInfo);
+              updateUser({ email, username, financialInfo, spendingLimits });
 
               // Check if BankID exists
               const bankID = data?.user?.bankID;

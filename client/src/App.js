@@ -19,11 +19,12 @@ import BankAccount from "./components/pages/BankAccount/BankAccount";
 import NotFound from "./components/pages/NotFound/NotFound";
 import Unavailable from "./components/pages/Unavailable/Unavailable";
 import BankCard from "./components/pages/BankCard/BankCard";
+import SpendingLimitForm from "./components/standalone/Forms/SpendingLimitForm";
 
 function App() {
   const {
     state: { loading },
-    UI: { showUserInfoForm },
+    UI: { showUserInfoForm, spendingLimitFormState },
   } = useGlobal();
   const { pathname } = useLocation();
   const { authState } = useAuth();
@@ -66,6 +67,9 @@ function App() {
 
       {/* User Info Form */}
       {showUserInfoForm && <UserInfoForm />}
+
+      {/* Spending Limit Form */}
+      {spendingLimitFormState.show && <SpendingLimitForm />}
 
       {/* Loading Spinner */}
       {loading.status && <LoadingSpinner />}

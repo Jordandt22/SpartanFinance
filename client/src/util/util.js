@@ -20,3 +20,35 @@ export const currencyFormater = (value) => {
 
   return formatter.format(value);
 };
+
+export const getMonthlySpending = (transactions) => {
+  let totalSpending = 0;
+
+  transactions.map((t) => {
+    const today = new Date();
+    const transactionDate = new Date(t.date);
+    if (
+      transactionDate.getFullYear() === today.getFullYear() &&
+      transactionDate.getMonth() === today.getMonth()
+    ) {
+      totalSpending += t.amount * -1;
+    }
+  });
+
+  return totalSpending <= 0 ? 0 : totalSpending;
+};
+
+export const getPercentageLevel = (currentBalance, limit) => {
+  const percentageUsed = (currentBalance / limit) * 100;
+  let percentageLevel = "green";
+  if (percentageUsed >= 80) {
+    percentageLevel = "red";
+  } else if (percentageUsed >= 50) {
+    percentageLevel = "yellow";
+  }
+
+  return {
+    percentageUsed,
+    percentageLevel,
+  };
+};

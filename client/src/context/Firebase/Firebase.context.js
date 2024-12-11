@@ -98,10 +98,10 @@ export const FirebaseContextProvider = (props) => {
           // Change Auth State to Logged In
           authenticateUser(accessToken, uid);
 
-          const { email, username, financialInfo } = data?.user;
+          const { email, username, financialInfo, spendingLimits } = data?.user;
 
           // Update User Info in User Context
-          updateUser(email, username, financialInfo);
+          updateUser({ email, username, financialInfo, spendingLimits });
 
           // Check if BankID exists
           const bankID = data?.user?.bankID;

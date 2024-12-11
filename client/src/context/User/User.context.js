@@ -14,6 +14,10 @@ export const UserContextProvider = (props) => {
         monthlySavings: 0,
       },
       financialInfoAdded: false,
+      spendingLimits: {
+        accounts: [],
+        cards: [],
+      },
     },
     bank: {
       state: {
@@ -28,19 +32,16 @@ export const UserContextProvider = (props) => {
   const [userState, setUserState] = useState(defaultUserState);
 
   // Update User Info
-  const updateUser = (email, username, financialInfo) =>
+  const updateUser = (data) =>
     setUserState((prevState) => ({
       ...prevState,
       user: {
         ...prevState.user,
-        email,
-        username,
-        financialInfo: {
-          ...prevState.user.financialInfo,
-          ...financialInfo,
-        },
+        ...data,
         financialInfoAdded:
-          financialInfo && Object.keys(financialInfo).length > 0 ? true : false,
+          data.financialInfo && Object.keys(data.financialInfo).length > 0
+            ? true
+            : false,
       },
     }));
 
@@ -55,6 +56,19 @@ export const UserContextProvider = (props) => {
           ...financialInfo,
         },
         financialInfoAdded: true,
+      },
+    }));
+
+  // Update Spending Limits
+  const updateSpendingLimits = (spendingLimits) =>
+    setUserState((prevState) => ({
+      ...prevState,
+      user: {
+        ...prevState.user,
+        spendingLimits: {
+          ...prevState.user.spendingLimits,
+          ...spendingLimits,
+        },
       },
     }));
 
@@ -90,7 +104,11 @@ export const UserContextProvider = (props) => {
     <UserContext.Provider
       value={{
         userState,
-        userFunctions: { updateUser, updateFinancialInfo },
+        userFunctions: {
+          updateUser,
+          updateFinancialInfo,
+          updateSpendingLimits,
+        },
         bankFunctions: { finishBankLogin, setToStepTwo },
         resetUserContext,
       }}

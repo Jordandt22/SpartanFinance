@@ -29,8 +29,28 @@ export const BankAPIContextProvider = (props) => {
       .then((res) => cb(res.data, null))
       .catch((err) => cb(null, err));
 
+  // POST: Add Bank Account Spending Limit
+  const addAccountSpendingLimit = (data, cb) =>
+    Axios.post(getBankAPIURI(uid, "limit/account"), data, config(accessToken))
+      .then((res) => cb(res.data, null))
+      .catch((err) => cb(null, err));
+
+  // POST: Add Bank Card Spending Limit
+  const addCardSpendingLimit = (data, cb) =>
+    Axios.post(getBankAPIURI(uid, "limit/card"), data, config(accessToken))
+      .then((res) => cb(res.data, null))
+      .catch((err) => cb(null, err));
+
   return (
-    <BankAPIContext.Provider value={{ functions: { connectToBank } }}>
+    <BankAPIContext.Provider
+      value={{
+        functions: {
+          connectToBank,
+          addAccountSpendingLimit,
+          addCardSpendingLimit,
+        },
+      }}
+    >
       {props.children}
     </BankAPIContext.Provider>
   );

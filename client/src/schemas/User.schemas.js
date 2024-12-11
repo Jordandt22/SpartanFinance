@@ -74,3 +74,4 @@ export const UserFinanceSchema = Yup.object().shape({
     .max(1000 * 1000, "Value must be between 0 and 1 million.")
     .required("Must enter your monthly savings."),
 });
+

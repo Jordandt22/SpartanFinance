@@ -10,23 +10,47 @@ export const GlobalContextProvider = (props) => {
     message: "Loading...",
   });
 
-  // User Info State
+  // User Info Form State
   const [showUserInfoForm, setShowUserInfoForm] = useState(false);
+
+  // Spending Limit Form State
+  const [spendingLimitFormState, setShowSpendingLimitForm] = useState({
+    show: false,
+    type: null,
+    ID: null,
+  });
 
   // Loading Functions
   const showLoading = (message) => setLoading({ status: true, message });
   const closeLoading = () =>
     setLoading({ status: false, message: "Loading..." });
 
-  // User Info Functions
+  // User Info Form Functions
   const openUserInfoForm = () => setShowUserInfoForm(true);
   const closeUserInfoForm = () => setShowUserInfoForm(false);
+
+  // Spending Limit Form Functions
+  const openSpendingLimitForm = (type, ID) =>
+    setShowSpendingLimitForm({ show: true, type, ID });
+  const closeSpendingLimitForm = () =>
+    setShowSpendingLimitForm({
+      show: false,
+      type: null,
+      ID: null,
+    });
 
   return (
     <GlobalContext.Provider
       value={{
         state: { loading, showLoading, closeLoading },
-        UI: { showUserInfoForm, openUserInfoForm, closeUserInfoForm },
+        UI: {
+          showUserInfoForm,
+          openUserInfoForm,
+          closeUserInfoForm,
+          spendingLimitFormState,
+          openSpendingLimitForm,
+          closeSpendingLimitForm,
+        },
       }}
     >
       {props.children}

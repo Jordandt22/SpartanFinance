@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 // Util
-import { currencyFormater } from "../../../util/util";
+import { currencyFormater, getPercentageLevel } from "../../../util/util";
 
 // SVGs
 import MoreIcon from "../../svg/icons/MoreIcon";
@@ -10,13 +10,10 @@ import MoreIcon from "../../svg/icons/MoreIcon";
 function BankCardInfo(props) {
   const { currentBalance, cardLimit, type, id } = props;
   const navigate = useNavigate();
-  const percentageUsed = (currentBalance / cardLimit) * 100;
-  let percentageLevel = "green";
-  if (percentageUsed >= 80) {
-    percentageLevel = "red";
-  } else if (percentageUsed >= 50) {
-    percentageLevel = "yellow";
-  }
+  const { percentageUsed, percentageLevel } = getPercentageLevel(
+    currentBalance,
+    cardLimit
+  );
 
   return (
     <div

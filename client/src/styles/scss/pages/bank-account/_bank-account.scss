@@ -45,7 +45,6 @@
     width: fit-content;
     background: white;
     padding: $spacer-small * 1.5 $spacer;
-    padding-right: $spacer-lg;
     border: 1px dashed #c2c2c2;
     border-radius: 10px;
     margin-right: $spacer;
@@ -88,6 +87,46 @@
     &:hover {
       background: $dark-primary;
     }
+  }
+
+  &__limit-label {
+    color: #808080;
+    margin-bottom: $spacer-small;
+    font-size: $main-fs * 0.8;
+  }
+
+  &__limit {
+    color: $primary;
+    font-size: $md-fs;
+    margin-bottom: $spacer-small;
+  }
+
+  &__edit {
+    display: block;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    background: $primary;
+    margin-left: $spacer-md;
+    height: 12.5vh;
+    padding: $spacer-small * 0.35;
+    transition: all 200ms ease-out;
+
+    svg {
+      transform: scale(0.9);
+
+      path {
+        fill: white;
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__disclaimer {
+    color: #808080;
   }
 }
 

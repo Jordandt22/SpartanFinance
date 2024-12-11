@@ -573,7 +573,8 @@ html {
   background: #ff4d4d;
 }
 
-.user-info-form-container {
+.user-info-form-container,
+.sl-form-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -989,7 +990,6 @@ html {
   width: fit-content;
   background: white;
   padding: 1.5rem 2rem;
-  padding-right: 8rem;
   border: 1px dashed #c2c2c2;
   border-radius: 10px;
   margin-right: 2rem;
@@ -1025,6 +1025,39 @@ html {
 }
 .BA-container__btn:hover {
   background: #3b3bff;
+}
+.BA-container__limit-label {
+  color: #808080;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+.BA-container__limit {
+  color: #6262ff;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+.BA-container__edit {
+  display: block;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  background: #6262ff;
+  margin-left: 4rem;
+  height: 12.5vh;
+  padding: 0.35rem;
+  transition: all 200ms ease-out;
+}
+.BA-container__edit svg {
+  transform: scale(0.9);
+}
+.BA-container__edit svg path {
+  fill: white;
+}
+.BA-container__edit:hover {
+  opacity: 0.8;
+}
+.BA-container__disclaimer {
+  color: #808080;
 }
 
 .BA-transactions {

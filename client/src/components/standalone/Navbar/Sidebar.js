@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 // Contexts
 import { useFirebase } from "../../../context/Firebase/Firebase.context";
@@ -54,6 +54,7 @@ function Sidebar() {
       fill: true,
     },
   ];
+  const navigate = useNavigate();
 
   return (
     <div className="db-sidebar between-row">
@@ -111,7 +112,10 @@ function Sidebar() {
       <button
         type="button"
         className="db-sidebar__logout"
-        onClick={logoutFirebaseUser}
+        onClick={() => {
+          logoutFirebaseUser();
+          navigate("/login");
+        }}
       >
         Logout
       </button>

@@ -49,6 +49,9 @@ module.exports = {
   addBankAccountSpendingLimit: async (req, res, next) => {
     const { bankAccountID, limit } = req.body;
     const { uid, spendingLimits } = req.user;
+    const filteredSpendingLimits = spendingLimits.accounts.filter(
+      (acc) => acc.bankAccountID !== bankAccountID
+    );
 
     try {
       // Add Bank ID to User Data
@@ -57,7 +60,7 @@ module.exports = {
         {
           spendingLimits: {
             ...spendingLimits,
-            accounts: [...spendingLimits.accounts, { limit, bankAccountID }],
+            accounts: [...filteredSpendingLimits, { limit, bankAccountID }],
           },
         },
         { returnDocument: "after" }
@@ -77,6 +80,9 @@ module.exports = {
   addBankCardSpendingLimit: async (req, res, next) => {
     const { bankCardID, limit } = req.body;
     const { uid, spendingLimits } = req.user;
+    const filteredSpendingLimits = spendingLimits.cards.filter(
+      (card) => card.bankCardID !== bankCardID
+    );
 
     try {
       // Add Bank ID to User Data
@@ -85,7 +91,7 @@ module.exports = {
         {
           spendingLimits: {
             ...spendingLimits,
-            cards: [...spendingLimits.cards, { limit, bankCardID }],
+            cards: [...filteredSpendingLimits, { limit, bankCardID }],
           },
         },
         { returnDocument: "after" }

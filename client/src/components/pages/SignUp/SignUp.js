@@ -91,7 +91,7 @@ function SignUp() {
                 authenticateUser(accessToken, uid);
 
                 // Update User Info in User Context
-                updateUser(email, username, null);
+                updateUser(email, username, null, null);
 
                 // Check if BankID exists
                 const { user } = data;
