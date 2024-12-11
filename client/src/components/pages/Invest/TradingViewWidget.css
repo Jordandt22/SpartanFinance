@@ -1,0 +1,43 @@
+/* Full-page styling with a consistent background */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #131722;
+    color: white;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Header styling */
+.app-header {
+    padding: 20px; /* Add padding for spacing */
+    background-color: #6262ff; /* Consistent theme color */
+    color: white; /* Text color */
+    text-align: left; /* Align header text to the left */
+    font-size: 24px; /* Larger font size for the header */
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow below header */
+}
+
+/* Central container for widgets */
+.tradingview-widget-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh; /* Ensures full height for scrolling */
+    padding: 20px; /* Adds padding around the widgets */
+}
+
+/* Widget container styling */
+.tradingview-widget-container {
+    width: 80%; /* Wider widget area */
+    max-width: 1200px; /* Optional max width */
+    margin-bottom: 30px; /* Spacing between widgets */
+    background-color: #131722; /* Match widget background */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow for better aesthetics */
+    overflow: hidden;
+}
