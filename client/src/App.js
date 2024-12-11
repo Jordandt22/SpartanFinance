@@ -21,6 +21,7 @@ import Unavailable from "./components/pages/Unavailable/Unavailable";
 import BankCard from "./components/pages/BankCard/BankCard";
 import SpendingLimitForm from "./components/standalone/Forms/SpendingLimitForm";
 import AIHelper from "./components/pages/AIHelper/AIHelper";
+import TrackSpending from "./components/pages/TrackSpending/Spending";
 
 function App() {
   const {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/account/:accountID" element={<BankAccount />} />
         <Route path="/cards" element={<BankCards />} />
         <Route path="/card/:cardID" element={<BankCard />} />
+        <Route path="/spending/:type/:ID" element={<TrackSpending />} />
 
         {/* Helper */}
         <Route path="/help" element={<AIHelper />} />
